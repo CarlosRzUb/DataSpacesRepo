@@ -1,0 +1,49 @@
+Directory Structure:
+    oods-system/
+        metadata_catalog/
+            ground_station_metadata.json
+            satellite_A_metadata.json
+            satellite_B_metadata.json
+        providers/
+            ground_station/
+                observations.csv
+                metadata.json
+            satellite_A/
+                observations.csv
+                metadata.csv
+            satellite_B/
+                observations.csv
+                metadata.json
+
+Dataset files:
+    oods-system/providers/ground_station/observations.csv
+    oods-system/providers/satellite_A/observations.csv
+    oods-system/providers/satellite_B/observations.csv
+
+Metadata files:
+    oods-system/providers/ground_station/metadata.json
+    oods-system/providers/satellite_A/metadata.json
+    oods-system/providers/satellite_B/metadata.json
+
+Role of metadata catalog:
+    * Discovery: Enables identifying and locating datasets across the distributed 
+    environment.
+    * Data Referencing: Stores "data_path" links pointing to the physical location 
+    of datasets at provider nodes.
+    * Decoupling: Separates the process of searching for data from the process of 
+    storing it.
+
+Discussion Questions:
+    * Which components store the actual data?
+    The independent data providers.
+
+    * Which component enables dataset discovery?
+    The federated metadata catalog.
+
+    * What advantages does the federated architecture provide?
+    It enables collaboration through distributed providers and shared metadata 
+    without requiring central data aggregation.
+
+    * What limitations might such a system have?
+    The system relies on metadata accuracy; if a provider changes a local path 
+    without updating the catalog, the data becomes unreachable.
