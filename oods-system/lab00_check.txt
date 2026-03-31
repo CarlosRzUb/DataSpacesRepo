@@ -1,0 +1,73 @@
+Lab 00 Check - Carlos Ruiz
+
+Directory Structure:
+student@student-CZR-BUSINESS-1150:~/oods-system$ ls -R
+
+.:
+backup  data_summary.txt  lab00_check.txt  metadata_catalog  providers
+
+./backup:
+satA_backup.csv
+
+./metadata_catalog:
+
+./providers:
+ground_station  satellite_A  satellite_B
+
+./providers/ground_station:
+observations.csv
+
+./providers/satellite_A:
+observations.csv
+
+./providers/satellite_B:
+observations.csv
+
+
+Dataset File Listings:
+./providers/satellite_A/observations.csv
+./providers/satellite_B/observations.csv
+./providers/ground_station/observations.csv
+
+
+Results of Search and Count Commands:
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep OBJ-002 providers/satellite_A/observations.csv 
+2026-03-01T12:05:00,OBJ-002,14.9,7.2
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep OBJ-002 providers/*/observations.csv 
+providers/satellite_A/observations.csv:2026-03-01T12:05:00,OBJ-002,14.9,7.2
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ wc -l providers/satellite_A/observations.csv 
+3 providers/satellite_A/observations.csv
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep OBJ-002 providers/*/observations.csv | wc -l
+1
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep -r OBJ-003 .
+./backup/satA_backup.csv:2026-03-01T12:10:00,OBJ-003,15.1,7.5
+./providers/satellite_A/observations.csv:2026-03-01T12:10:00,OBJ-003,15.1,7.5
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ find ./providers/ -type f -exec cat {} + | wc -l
+3
+
+
+Permissions:
+student@student-CZR-BUSINESS-1150:~/oods-system$ ls -l -R ./providers/
+./providers/:
+total 12
+drwxrwxr-x 2 student student 4096 mar 24 13:56 ground_station
+drwxrwxr-x 2 student student 4096 mar 24 13:58 satellite_A
+drwxrwxr-x 2 student student 4096 mar 24 13:56 satellite_B
+
+./providers/ground_station:
+total 0
+-rw-rw-r-- 1 student student 0 mar 24 13:56 observations.csv
+
+./providers/satellite_A:
+total 4
+-rw-r--r-- 1 student student 111 mar 24 13:58 observations.csv
+
+./providers/satellite_B:
+total 4
+-rw-rw-r-- 1 student student 37 mar 24 14:17 observations.csv
+

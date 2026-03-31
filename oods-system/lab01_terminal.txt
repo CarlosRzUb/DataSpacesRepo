@@ -1,0 +1,243 @@
+student@student-CZR-BUSINESS-1150:~/oods-system$ ls -R
+.:
+backup  data_summary.txt  lab00_check.txt  metadata_catalog  providers
+
+./backup:
+satA_backup.csv
+
+./metadata_catalog:
+
+./providers:
+ground_station  satellite_A  satellite_B
+
+./providers/ground_station:
+observations.csv
+
+./providers/satellite_A:
+observations.csv
+
+./providers/satellite_B:
+observations.csv
+student@student-CZR-BUSINESS-1150:~/oods-system$ mkdir central_repository
+student@student-CZR-BUSINESS-1150:~/oods-system$ cp providers/* central_repository/
+cp: -r not specified; omitting directory 'providers/ground_station'
+cp: -r not specified; omitting directory 'providers/satellite_A'
+cp: -r not specified; omitting directory 'providers/satellite_B'
+student@student-CZR-BUSINESS-1150:~/oods-system$ cp -r providers/* central_repository/
+student@student-CZR-BUSINESS-1150:~/oods-system$ ls central_repository/
+ground_station  satellite_A  satellite_B
+student@student-CZR-BUSINESS-1150:~/oods-system$ ls -R central_repository/
+central_repository/:
+ground_station  satellite_A  satellite_B
+
+central_repository/ground_station:
+observations.csv
+
+central_repository/satellite_A:
+observations.csv
+
+central_repository/satellite_B:
+observations.csv
+student@student-CZR-BUSINESS-1150:~/oods-system$ cat central_repository/satellite_A/observations.csv | grep OBJ-001
+2026-03-01T12:00:00,OBJ-001,15.3,7.4
+student@student-CZR-BUSINESS-1150:~/oods-system$ cat -r central_repository/* | grep OBJ-001
+cat: invalid option -- 'r'
+Try 'cat --help' for more information.
+student@student-CZR-BUSINESS-1150:~/oods-system$ cat providers
+cat: providers: Is a directory
+student@student-CZR-BUSINESS-1150:~/oods-system$ echo -r
+-r
+student@student-CZR-BUSINESS-1150:~/oods-system$ cat -r
+cat: invalid option -- 'r'
+Try 'cat --help' for more information.
+student@student-CZR-BUSINESS-1150:~/oods-system$ cat --help
+Usage: cat [OPTION]... [FILE]...
+Concatenate FILE(s) to standard output.
+
+With no FILE, or when FILE is -, read standard input.
+
+  -A, --show-all           equivalent to -vET
+  -b, --number-nonblank    number nonempty output lines, overrides -n
+  -e                       equivalent to -vE
+  -E, --show-ends          display $ at end of each line
+  -n, --number             number all output lines
+  -s, --squeeze-blank      suppress repeated empty output lines
+  -t                       equivalent to -vT
+  -T, --show-tabs          display TAB characters as ^I
+  -u                       (ignored)
+  -v, --show-nonprinting   use ^ and M- notation, except for LFD and TAB
+      --help        display this help and exit
+      --version     output version information and exit
+
+Examples:
+  cat f - g  Output f's contents, then standard input, then g's contents.
+  cat        Copy standard input to standard output.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Full documentation <https://www.gnu.org/software/coreutils/cat>
+or available locally via: info '(coreutils) cat invocation'
+student@student-CZR-BUSINESS-1150:~/oods-system$ find /path/to/directory -type f -print0 | xargs -0 cat   
+find: ‘/path/to/directory’: No such file or directory
+student@student-CZR-BUSINESS-1150:~/oods-system$ find providers/ -type f -print0 | xargs -0 cat   
+2026-03-01T12:00:00,OBJ-001,15.3,7.4
+2026-03-01T12:05:00,OBJ-002,14.9,7.2
+2026-03-01T12:10:00,OBJ-003,15.1,7.5
+2026-03-01T12:30:00,OBJ-002,15.2,8.0
+student@student-CZR-BUSINESS-1150:~/oods-system$ find providers/ -type f -print0 | xargs -0 cat | wc -l
+4
+student@student-CZR-BUSINESS-1150:~/oods-system$ cut -d ',' -f2 providers/satellite_A/observations.csv 
+OBJ-001
+OBJ-002
+OBJ-003
+student@student-CZR-BUSINESS-1150:~/oods-system$ -find . -type f -exec cut -d ',' -f2 {} + 
+Command '-find' not found, did you mean:
+  command 'kfind' from deb kfind (4:23.08.4-0ubuntu1)
+  command 'sfind' from deb shapetools (1.4pl6-16)
+  command 'ffind' from deb sleuthkit (4.12.1+dfsg-1)
+  command 'ifind' from deb sleuthkit (4.12.1+dfsg-1)
+  command 'hfind' from deb sleuthkit (4.12.1+dfsg-1)
+  command 'vfind' from deb atfs (1.4pl6-16)
+  command 'find' from deb findutils (4.9.0-5)
+Try: sudo apt install <deb name>
+student@student-CZR-BUSINESS-1150:~/oods-system$ find . -type f -exec cut -d ',' -f2 {} + 
+OBJ-001
+OBJ-002
+OBJ-003
+OBJ-001
+OBJ-002
+OBJ-003
+OBJ-002
+OBJ-001
+OBJ-002
+OBJ-003
+OBJ-002
+Lab 00 Check - Carlos Ruiz
+
+Directory Structure:
+student@student-CZR-BUSINESS-1150:~/oods-system$ ls -R
+
+.:
+backup  data_summary.txt  lab00_check.txt  metadata_catalog  providers
+
+./backup:
+satA_backup.csv
+
+./metadata_catalog:
+
+./providers:
+ground_station  satellite_A  satellite_B
+
+./providers/ground_station:
+observations.csv
+
+./providers/satellite_A:
+observations.csv
+
+./providers/satellite_B:
+observations.csv
+
+
+Dataset File Listings:
+./providers/satellite_A/observations.csv
+./providers/satellite_B/observations.csv
+./providers/ground_station/observations.csv
+
+
+Results of Search and Count Commands:
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep OBJ-002 providers/satellite_A/observations.csv 
+OBJ-002
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep OBJ-002 providers/*/observations.csv 
+OBJ-002
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ wc -l providers/satellite_A/observations.csv 
+3 providers/satellite_A/observations.csv
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep OBJ-002 providers/*/observations.csv | wc -l
+1
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep -r OBJ-003 .
+OBJ-003
+OBJ-003
+-
+student@student-CZR-BUSINESS-1150:~/oods-system$ find ./providers/ -type f -exec cat {} + | wc -l
+3
+
+
+Permissions:
+student@student-CZR-BUSINESS-1150:~/oods-system$ ls -l -R ./providers/
+./providers/:
+total 12
+drwxrwxr-x 2 student student 4096 mar 24 13:56 ground_station
+drwxrwxr-x 2 student student 4096 mar 24 13:58 satellite_A
+drwxrwxr-x 2 student student 4096 mar 24 13:56 satellite_B
+
+./providers/ground_station:
+total 0
+-rw-rw-r-- 1 student student 0 mar 24 13:56 observations.csv
+
+./providers/satellite_A:
+total 4
+-rw-r--r-- 1 student student 111 mar 24 13:58 observations.csv
+
+./providers/satellite_B:
+total 4
+-rw-rw-r-- 1 student student 37 mar 24 14:17 observations.csv
+
+student@student-CZR-BUSINESS-1150:~/oods-system$ find ./providers/ -type f -exec cut -d ',' -f2 {} + 
+OBJ-001
+OBJ-002
+OBJ-003
+OBJ-002
+student@student-CZR-BUSINESS-1150:~/oods-system$ rm central_repository/
+rm: cannot remove 'central_repository/': Is a directory
+student@student-CZR-BUSINESS-1150:~/oods-system$ rm -r central_repository/
+student@student-CZR-BUSINESS-1150:~/oods-system$ mkdir central_repository
+student@student-CZR-BUSINESS-1150:~/oods-system$ find providers -type f -exec cp {} central_repository/ +
+find: missing argument to `-exec'
+student@student-CZR-BUSINESS-1150:~/oods-system$ find providers -type f -exec cp {} central_repository/
+find: missing argument to `-exec'
+student@student-CZR-BUSINESS-1150:~/oods-system$ find providers -type f -exec cp {} /central_repository/
+find: missing argument to `-exec'
+student@student-CZR-BUSINESS-1150:~/oods-system$ find providers -maxdepth 2 -type f -exec cp {} /central_repository/
+find: missing argument to `-exec'
+student@student-CZR-BUSINESS-1150:~/oods-system$ find providers -maxdepth 2 -type f -exec cp {} /central_repository/ \;   
+cp: cannot create regular file '/central_repository/': Not a directory
+cp: cannot create regular file '/central_repository/': Not a directory
+cp: cannot create regular file '/central_repository/': Not a directory
+student@student-CZR-BUSINESS-1150:~/oods-system$ find providers -maxdepth 2 -type f -exec cp {} + /central_repository/   
+find: paths must precede expression: `/central_repository/'
+student@student-CZR-BUSINESS-1150:~/oods-system$ cp -r providers/ central_repository/
+student@student-CZR-BUSINESS-1150:~/oods-system$ ls -R central_repository/
+central_repository/:
+providers
+
+central_repository/providers:
+ground_station  satellite_A  satellite_B
+
+central_repository/providers/ground_station:
+observations.csv
+
+central_repository/providers/satellite_A:
+observations.csv
+
+central_repository/providers/satellite_B:
+observations.csv
+student@student-CZR-BUSINESS-1150:~/oods-system$ rm -r central_repository/
+student@student-CZR-BUSINESS-1150:~/oods-system$ mkdir central_repository
+student@student-CZR-BUSINESS-1150:~/oods-system$ cp providers/satellite_A/observations.csv central_repository/; mv central_repository/observations.csv central_repository/satellite_A_observations.csv
+student@student-CZR-BUSINESS-1150:~/oods-system$ cp providers/satellite_B/observations.csv central_repository/; mv central_repository/observations.csv central_repository/satellite_B_observations.csv
+student@student-CZR-BUSINESS-1150:~/oods-system$ cp providers/ground_station/observations.csv central_repository/; mv central_repository/observations.csv central_repository/ground_station_observations.csv
+student@student-CZR-BUSINESS-1150:~/oods-system$ ls central_repository/
+ground_station_observations.csv  satellite_B_observations.csv
+satellite_A_observations.csv
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep OBJ-002 central_repository/
+grep: central_repository/: Is a directory
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep OBJ-002 central_repository/*
+central_repository/satellite_A_observations.csv:2026-03-01T12:05:00,OBJ-002,14.9,7.2
+central_repository/satellite_B_observations.csv:2026-03-01T12:30:00,OBJ-002,15.2,8.0
+student@student-CZR-BUSINESS-1150:~/oods-system$ grep OBJ-002 providers/*/observations.csv
+providers/satellite_A/observations.csv:2026-03-01T12:05:00,OBJ-002,14.9,7.2
+providers/satellite_B/observations.csv:2026-03-01T12:30:00,OBJ-002,15.2,8.0
+student@student-CZR-BUSINESS-1150:~/oods-system$ 
+
