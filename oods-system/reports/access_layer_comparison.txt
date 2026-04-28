@@ -1,0 +1,16 @@
+ACCESS LAYER COMPARISON
+
+1. Which is easiest to implement?
+REST. It is the most straightforward because you just expose the local dataset via HTTP without worrying about extra query languages or gateways[cite: 1340, 1341].
+
+2. Which is best for SQL-style analysis?
+DuckDB over HTTP. It is designed for this. It lets you run SELECTs, joins, and count records from remote files as if they were stored locally[cite: 1344, 1345, 1347].
+
+3. Which is best for object-centric access?
+GraphQL. Instead of thinking about files, you think about "objects." The client requests exactly the fields they need for an object, and the gateway handles the rest[cite: 1348, 1349, 1352].
+
+4. Which has the highest architectural complexity?
+GraphQL. Since it uses gateway federation, you have to set up a central server that knows all providers and can unify their responses[cite: 1359].
+
+5. Which is closest to a Data Space or Data Mesh?
+GraphQL. It provides a unified semantic layer that hides where the data is actually located, which is a core concept of modern data spaces[cite: 1350, 1360, 1439].
