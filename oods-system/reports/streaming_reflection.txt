@@ -1,0 +1,16 @@
+STREAMING REFLECTION: KAFKA-LITE VS REAL KAFKA
+
+1. How the implemented broker differs from Kafka:
+Our broker is a simple FastAPI memory-based service [cite: 161-162]. Unlike Kafka, it doesn't persist data to disk, so if the server restarts, all events are lost. Also, we use a "pull" model where the consumer polls the broker[cite: 39, 95], while Kafka is designed for high-throughput distributed streaming.
+
+2. Which Kafka features are missing:
+- Persistence: Kafka stores events on disk for a defined retention period.
+- Topics and Partitioning: We have a single list of events instead of organized channels (topics) that can be split for parallel processing[cite: 94].
+- Consumer Groups: We can't easily balance the load between multiple consumers.
+- Replication: There is no redundancy; if our broker fails, the system dies[cite: 94].
+
+3. What would need to be added for a real platform:
+- Disk Storage: To prevent data loss on crashes.
+- Push Notifications: Implementing WebSockets or a real pub/sub protocol so consumers don't have to "ask" for data every 3 seconds[cite: 40].
+- Scalability: Adding partitioning to handle thousands of satellites at once.
+- Security: Adding authentication (API Keys/JWT) and encryption to protect sensitive orbital data.
