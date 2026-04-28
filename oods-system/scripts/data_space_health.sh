@@ -1,9 +1,14 @@
 #!/bin/bash
-REPORT="reports/data_space_health.txt"
-mkdir -p reports
-echo "DATA SPACE HEALTH REPORT" > "$REPORT"
-echo "Total datasets: $(ls providers/*/observations.csv | wc -l)" >> "$REPORT"
-echo "Datasets missing metadata: $(./scripts/check_metadata_coverage.sh | wc -l)" >> "$REPORT"
-echo "Empty datasets: $(find providers/ -name "*.csv" -empty | wc -l)" >> "$REPORT"
-echo "Inconsistent datasets: $(./scripts/check_metadata_consistency.sh | wc -l)" >> "$REPORT"
-echo "Federated queries complete: $(./scripts/check_query_completeness.sh | tail -n 1 | cut -d' ' -f2)" >> "$REPORT"
+SCORE=$(duckdb -noheader -list -c "SELECT COUNT(*) FROM (SELECT object_id FROM read_csv_auto('providers/*/observations.csv', filename=true) GROUP BY object_id HAVING COUNT(DISTINCT filename) = 3);")
+TOTAL_OBJ=$(duckdb -noheader -list -c "SELECT COUNT(DISTINCT object_id) FROM read_csv_auto('providers/*/observations.csv');")
+FULL=$(duckdb -noheader -list -c "SELECT COUNT(*) FROM read_csv_auto('providers/*/observations.csv');")
+FED=$(duckdb -noheader -list -c "SELECT COUNT(*) FROM read_csv_auto(['providers/satellite_A/observations.csv', 'providers/satellite_B/observations.csv']);")
+
+if [ "$SCORE" -eq "$TOTAL_OBJ" ] && [ "$FULL" -eq "$FED" ]; then
+    echo "DATA SPACE HEALTH: GOOD"
+elif [ "$FULL" -ne "$FED" ]; then
+    echo "DATA SPACE HEALTH: WARNING"
+    echo "Reason: incomplete coverage and federated loss detected"
+else
+    echo "DATA SPACE HEALTH: CRITICAL"
+fi
