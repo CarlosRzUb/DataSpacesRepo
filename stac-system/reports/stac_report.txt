@@ -1,0 +1,10 @@
+STAC REPORT
+Total items: 40
+Collections: sentinel-2-l2a
+Temporal coverage: 2024-01-02T09:54:11.024Z to 2024-01-10T10:03:09.024Z
+Spatial coverage: Southern Poland & Baltic Coastal Region
+Duplicate items removed: 0
+Failed queries: 0
+Empty search regions: 1
+Assets available: visual, metadata, thumbnail, scientific_bands
+Metadata completeness score: 100% (Core STAC fields present)

@@ -1,0 +1,98 @@
+FIRST STAC SEARCH
+=================
+Collection:
+sentinel-2-l2a
+
+Item 1:
+ID:
+S2B_MSIL2A_20260505T083559_N0512_R064_T47XNL_20260505T112731
+Acquisition time:
+2026-05-05T08:35:59.024000Z
+Bounding box:
+[98.99875257240886, 80.95852506360052, 100.73640882503693, 81.72311489322736]
+Available assets:
+- AOT_10m
+- B02_10m
+- B03_10m
+- B04_10m
+- TCI_10m
+- thumbnail
+Interpretation:
+This item represents a Sentinel-2 optical observation.
+It contains multiple spectral bands, atmospheric correction products, and preview imagery.
+
+------------------------------------------------
+Item 2:
+ID:
+S2B_MSIL2A_20260505T083559_N0512_R064_T43XDJ_20260505T112731
+Acquisition time:
+2026-05-05T08:35:59.024000Z
+Bounding box:
+[70.13828363658456, 79.1449641306286, 75.5118266929997, 80.16495179276069]
+Available assets:
+- AOT_10m
+- B02_10m
+- B03_10m
+- B04_10m
+- TCI_10m
+- thumbnail
+Interpretation:
+This item represents a Sentinel-2 optical observation.
+It contains multiple spectral bands, atmospheric correction products, and preview imagery.
+
+------------------------------------------------
+Item 3:
+ID:
+S2B_MSIL2A_20260505T083559_N0512_R064_T41XMG_20260505T112731
+Acquisition time:
+2026-05-05T08:35:59.024000Z
+Bounding box:
+[62.10173417696735, 77.37990331730917, 63.41314712692643, 77.76348765366649]
+Available assets:
+- AOT_10m
+- B02_10m
+- B03_10m
+- B04_10m
+- TCI_10m
+- thumbnail
+Interpretation:
+This item represents a Sentinel-2 optical observation.
+It contains multiple spectral bands, atmospheric correction products, and preview imagery.
+
+------------------------------------------------
+Item 4:
+ID:
+S2B_MSIL2A_20260505T083559_N0512_R064_T41WMV_20260505T112731
+Acquisition time:
+2026-05-05T08:35:59.024000Z
+Bounding box:
+[60.086288267792696, 71.99891714681722, 60.277270499982045, 72.07916103777389]
+Available assets:
+- AOT_10m
+- B02_10m
+- B03_10m
+- B04_10m
+- TCI_10m
+- thumbnail
+Interpretation:
+This item represents a Sentinel-2 optical observation.
+It contains multiple spectral bands, atmospheric correction products, and preview imagery.
+
+------------------------------------------------
+Item 5:
+ID:
+S2B_MSIL2A_20260505T083559_N0512_R064_T40WFE_20260505T112731
+Acquisition time:
+2026-05-05T08:35:59.024000Z
+Bounding box:
+[59.88651171965385, 71.90300697556275, 60.25667187261393, 72.0778946718879]
+Available assets:
+- AOT_10m
+- B02_10m
+- B03_10m
+- B04_10m
+- TCI_10m
+- thumbnail
+Interpretation:
+This item represents a Sentinel-2 optical observation.
+It contains multiple spectral bands, atmospheric correction products, and preview imagery.

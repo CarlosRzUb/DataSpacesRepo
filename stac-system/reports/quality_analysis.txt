@@ -1,0 +1,23 @@
+PRODUCT 1:
+ID: S2B_MSIL2A_20260505T083559_N0512_R064_T40WDB_20260505T112731
+TIME: 2026-05-05T08:35:59.024000Z
+CLOUD COVER: 0.98
+
+PRODUCT 2:
+ID: S2B_MSIL2A_20260505T083559_N0512_R064_T44XMM_20260505T112731
+TIME: 2026-05-05T08:35:59.024000Z
+CLOUD COVER: 87.94
+
+CONCLUSIONS
+
+Which product would be selected for mission analysis?
+Product 1 would be selected. With a cloud cover of only 0.98%, it provides an almost perfectly clear observation of the target area, making it ideal for visual interpretation, AI object detection, or spectral analysis.
+
+Which product would be rejected?
+Product 2 would be rejected. At 87.94% cloud cover, the vast majority of the Earth's surface is obscured. Downloading or processing this optical product would waste bandwidth and computational resources.
+
+At what cloud level does optical imagery become operationally risky?
+Optical imagery generally becomes operationally risky when cloud cover exceeds 20% to 30%. At these levels, critical targets (like specific infrastructure or fire perimeters) might be completely hidden under localized clouds, even if the overall image percentage seems acceptable. Anything above 50% is almost always operationally useless for targeted analysis.
+
+Would SAR imagery improve mission reliability?
+Yes. SAR sensors, like those on Sentinel-1, actively emit microwave signals that penetrate clouds, smoke, and weather systems. They operate independently of solar illumination and cloud cover, drastically improving reliability for time-critical missions where waiting for clear skies is not an option.
