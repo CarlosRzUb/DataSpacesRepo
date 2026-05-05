@@ -1,0 +1,28 @@
+SPATIAL FILTERING ANALYSIS
+==========================
+
+1. Baltic Coastal Region (AOI: [17.0, 54.0, 19.0, 55.5]):
+- Total products matched: The exact total was omitted by the CDSE API (returned null for performance reasons), but products are actively available and successfully retrieved in the region.
+- Example Product 1:
+  ID: S2C_MSIL2A_20260504T100031_N0512_R122_T34UCG_20260504T152200
+  BBox: [17.800511438780465, 54.91902653885059, 19.591601297939256, 55.93727334575647]
+- Example Product 2:
+  ID: S2C_MSIL2A_20260504T100031_N0512_R122_T34UCF_20260504T152200
+  BBox: [17.87240396241576, 54.021430711029694, 19.622172463921235, 55.038802909805916]
+- Example Product 3:
+  ID: S2C_MSIL2A_20260504T100031_N0512_R122_T34UCE_20260504T152200
+  BBox: [17.940406316632895, 53.123645037009204, 19.651120770782793, 54.140186775460364]
+
+2. Comparison with Kraków Region:
+Both the Baltic coastal region and the Kraków region exhibit strong data availability in the Sentinel-2 catalog, as Europe is a priority observation zone for the Copernicus program. However, coastal areas often suffer from dynamic weather conditions compared to inland continental regions.
+
+CONCLUSIONS
+
+Which region appears easier to monitor using this collection?
+From a pure catalog perspective, both regions have excellent orbital coverage. However, practically, the Kraków region may be slightly easier to monitor with optical imagery (Sentinel-2) because the Baltic region is highly susceptible to coastal cloud cover and sea fog, which degrades optical product usability.
+
+Which operational risks may arise from uneven spatial coverage?
+Uneven spatial coverage creates critical "blind spots". If an infrastructure failure or natural disaster occurs in an under-observed region, response teams will lack the necessary situational awareness. It can also bias AI/ML models if they are trained on regions with high data density but deployed in regions with sparse coverage.
+
+Would an additional sensor type improve monitoring reliability?
+Yes. For the Baltic coastal region, integrating a SAR (Synthetic Aperture Radar) collection like Sentinel-1 is strictly necessary. SAR sensors penetrate cloud cover and operate at night, completely mitigating the weather-related operational risks of the Baltic Sea.

@@ -1,0 +1,17 @@
+PYTHON STAC RESULTS
+===================
+
+1. How many products were returned?
+5 products were returned.
+
+2. Do all products come from the same satellite?
+Yes. All 5 products were acquired by Sentinel-2B (S2B).
+
+3. Do all products have the same acquisition time?
+Yes. All products share the exact same acquisition timestamp (2026-05-05T08:35:59.024000Z). This indicates they belong to the same orbital pass.
+
+4. Do the products correspond to different spatial tiles?
+Yes. Each product covers a different spatial tile: T48XVP, T47XNL, T47XNJ, T46XEQ, and T46XEN.
+
+5. Why is Python-based querying more useful than manual curl for repeated discovery?
+Python allows for automated parsing, dynamic string manipulation (like extracting the satellite name and tile ID from the product ID), and integration into larger data engineering pipelines. It transforms raw JSON into structured, mission-ready information without manual intervention.

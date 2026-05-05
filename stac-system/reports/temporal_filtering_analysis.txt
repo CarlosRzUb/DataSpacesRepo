@@ -1,0 +1,38 @@
+TEMPORAL FILTERING ANALYSIS
+===========================
+
+1. Pre-event window (2024-01-01 / 2024-01-04):
+- Number of observations: 0
+- Timestamps: None
+- Status: Temporal gap detected before the incident.
+
+2. Event window (2024-01-05):
+- Number of observations: 10 (Limit reached)
+- Timestamps:
+  - 2024-01-05T23:52:31.024Z
+  - 2024-01-05T23:52:31.024Z
+  - 2024-01-05T23:52:31.024Z
+  - 2024-01-05T23:52:31.024Z
+  - 2024-01-05T23:52:31.024Z
+  - 2024-01-05T23:52:31.024Z
+  - 2024-01-05T23:52:31.024Z
+  - 2024-01-05T23:52:31.024Z
+  - 2024-01-05T23:52:31.024Z
+  - 2024-01-05T23:52:31.024Z
+- Status: Strong observation coverage exactly during the event window.
+
+3. Post-event window (2024-01-06 / 2024-01-10):
+- Number of observations: 0
+- Timestamps: None
+- Status: Temporal gap detected after the incident.
+
+CONCLUSIONS
+
+Can this collection support incident monitoring?
+Partially. It provides excellent coverage on the exact day of the event (January 5th), but lacks baseline pre-event imagery (January 1-4) and post-event assessment imagery (January 6-10).
+
+Is the revisit frequency sufficient for operational analysis?
+No, the revisit frequency shown in this specific query is insufficient. The complete absence of optical data for 4 days before and 5 days after the event creates significant operational blind spots.
+
+Would another sensor type (e.g. SAR) be needed to improve temporal coverage?
+Yes. A SAR/radar collection (like Sentinel-1) is necessary to fill these temporal gaps, increase revisit frequency, and guarantee continuous monitoring regardless of cloud cover or optical sensor availability.

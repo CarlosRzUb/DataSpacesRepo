@@ -1,0 +1,52 @@
+STAC COLLECTION ANALYSIS
+========================
+
+1. Available collections:
+- ccm-optical
+- ccm-sar
+- clms_ba_global_300m_daily_v3_cog
+- clms_ba_global_300m_daily_v3_nc
+- clms_ba_global_300m_daily_v4_cog
+
+2. Optical collection:
+- ccm-optical
+
+3. Radar/SAR collection:
+- ccm-sar
+
+4. Selected collection metadata:
+Collection ID: ccm-optical
+Title: Copernicus Contributing Missions Optical
+
+5. Sentinel-related metadata:
+Platform: sentinel-2a
+
+6. Example platforms:
+- worldview-2
+- pleiades-1a
+- planetscope
+- alos-1
+
+7. Example instruments:
+- msi
+- opt
+- prism
+- dove
+
+8. Spatial coverage:
+Global / multi-region
+
+9. Temporal coverage:
+1998-01-19 to present
+
+10. Available item assets:
+- Product
+- Circulation report
+
+11. Authentication:
+Product download requires OIDC authentication
+
+12. Selected collection for later tasks:
+ccm-optical
+Reason:
+Selected because it contains optical EO imagery with rich metadata and multiple satellite platforms.

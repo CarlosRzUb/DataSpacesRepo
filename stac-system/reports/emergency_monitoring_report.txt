@@ -1,0 +1,32 @@
+EMERGENCY MONITORING REPORT
+Time window: 2024-07-01T00:00:00Z/2024-07-31T23:59:59Z
+Collection: sentinel-2-l2a
+Cloud cover threshold: < 30%
+
+[WILDFIRE REGION]
+Returned products: 15
+Example products:
+S2A_MSIL2A_20240730T095031_N0511_R079_T33TXF_20240730T155453
+S2A_MSIL2A_20240730T095031_N0511_R079_T33TXE_20240730T155453
+S2A_MSIL2A_20240730T095031_N0511_R079_T33TWF_20240730T155453
+
+[FLOOD REGION]
+Returned products: 15
+Example products:
+S2A_MSIL2A_20240730T095031_N0511_R079_T34UDV_20240730T155453
+S2A_MSIL2A_20240730T095031_N0511_R079_T34UDB_20240730T155453
+S2A_MSIL2A_20240730T095031_N0511_R079_T34UDA_20240730T155453
+
+[VOLCANIC REGION]
+Returned products: 15
+Example products:
+S2A_MSIL2A_20240730T095031_N0511_R079_T33SWC_20240730T155453
+S2A_MSIL2A_20240730T095031_N0511_R079_T33SWB_20240730T155453
+S2A_MSIL2A_20240730T095031_N0511_R079_T33SVC_20240730T155453
+
+INTERPRETATION:
+The volcanic region has the strongest optical product availability
+in this query. However, optical imagery may still be limited by clouds,
+smoke or acquisition timing. For emergency monitoring, SAR data should be
+considered as a complementary source because it can support observation
+under cloud cover and during night-time conditions.
