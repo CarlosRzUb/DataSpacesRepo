@@ -1,0 +1,16 @@
+WATER DETECTION REPORT
+===
+Detection rule:
+NDVI < 0
+
+Pixel statistics:
+Water candidate pixels: 888
+Non-water pixels: 89112
+Water candidate percentage: 0.99%
+
+Interpretation:
+Small number of low-NDVI areas detected.
+Potential explanations:
+water surfaces
+shadows
+urban regions

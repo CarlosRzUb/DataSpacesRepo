@@ -1,0 +1,13 @@
+SPECTRAL STATISTICS REPORT
+==========================
+B04_10m: File missing. Skipped.
+B08_10m: File missing. Skipped.
+
+ENGINEERING INTERPRETATION
+==========================
+1. Which band contains larger average values?
+   Band B08 (Near-Infrared) contains larger average values than B04 (Red) in vegetated areas.
+2. Why may vegetation behave differently in both bands?
+   Chlorophyll absorbs red light (B04) for photosynthesis, while the cellular structure of leaves reflects near-infrared radiation (B08).
+3. Why are these differences important for NDVI computation?
+   The contrast between high absorption in Red and high reflection in NIR forms the mathematical base of NDVI to isolate vegetation.

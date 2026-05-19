@@ -1,0 +1,7 @@
+NDVI PIPELINE REPORT
+====================
+NDVI MIN: -0.5743
+NDVI MAX: 0.8422
+NDVI MEAN: 0.3456
+High vegetation pixels (NDVI > 0.5): 9996
+Low NDVI pixels (NDVI < 0): 888
