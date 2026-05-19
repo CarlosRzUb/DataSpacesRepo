@@ -1,0 +1,17 @@
+NDVI ANALYSIS REPORT
+====================
+Input File: results/ndvi/ndvi.npy
+Generated Image: results/ndvi/ndvi_map.png
+
+STATISTICS:
+NDVI Minimum: -0.5743
+NDVI Maximum: 0.8422
+NDVI Mean: 0.3456
+High Vegetation Pixels (NDVI > 0.5): 9996 (11.11%)
+Low NDVI Pixels (NDVI < 0): 888 (0.99%)
+
+ENGINEERING INTERPRETATION:
+1. Vegetated areas correspond to pixels with high NDVI values, driven by strong NIR reflection.
+2. Non-vegetated surfaces or bare soil correspond to intermediate or lower positive values.
+3. Low or negative NDVI values typically represent water, deep shadows, or high-reflectance artifacts like clouds.
+4. No direct cloud contamination can be confirmed in this test because the input spectral bands were synthetically generated for pipeline validation.
