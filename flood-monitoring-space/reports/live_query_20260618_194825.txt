@@ -1,0 +1,93 @@
+======================================================================
+LIVE STAC AVAILABILITY QUERY — FEDERATED FLOOD MONITORING DATA SPACE
+======================================================================
+Query time:    2026-06-18 19:48:25
+STAC endpoint: https://catalogue.dataspace.copernicus.eu/stac/search
+AOI:           Central Europe (Poland / Czech Republic / Germany)
+Bbox:          [14.0, 49.5, 23.0, 54.5]
+Time window:   2024-09-01T00:00:00Z/2024-09-15T23:59:59Z
+
+----------------------------------------------------------------------
+LIVE STAC QUERY RESULTS (sentinel-1-grd, sentinel-2-l2a via CDSE)
+----------------------------------------------------------------------
+
+  [SENTINEL_1]  Sentinel-1 SAR  (collection: sentinel-1-grd)
+  Status:   AVAILABLE
+  Products found:    5
+  Earliest:          2024-09-15T05:01:49.584934Z
+  Latest:            2024-09-15T16:11:57.287870Z
+  Example IDs:
+    - S1A_IW_GRDH_1SDV_20240915T161157_20240915T161222_055678_06CC8D_84CD_COG
+    - S1A_IW_GRDH_1SDV_20240915T161132_20240915T161157_055678_06CC8D_ABFD_COG
+    - S1A_IW_GRDH_1SDV_20240915T161107_20240915T161132_055678_06CC8D_CECC_COG
+  Flood requirements met: flood_detection, flood_extent_assessment, cloudy_conditions, night_operations, emergency_response
+
+  [SENTINEL_2]  Sentinel-2 Optical  (collection: sentinel-2-l2a)
+  Status:   AVAILABLE
+  Products found:    5
+  Earliest:          2024-09-15T09:40:31.024000Z
+  Latest:            2024-09-15T09:40:31.024000Z
+  Avg cloud cover:   64.1%
+  Example IDs:
+    - S2A_MSIL2A_20240915T094031_N0511_R036_T34UFV_20240915T144349
+    - S2A_MSIL2A_20240915T094031_N0511_R036_T34UFF_20240915T144349
+    - S2A_MSIL2A_20240915T094031_N0511_R036_T34UFE_20240915T144349
+  Flood requirements met: flood_detection, flood_extent_assessment, emergency_response
+
+----------------------------------------------------------------------
+METADATA-ONLY PROVIDERS (external access)
+----------------------------------------------------------------------
+
+  [SENTINEL_3]  Sentinel-3 OLCI
+  Access: Available via CDSE OData or EUMETSAT Data Store (requires auth)
+  Flood requirements met: flood_detection, flood_extent_assessment, emergency_response
+
+  [SENTINEL_5P]  Sentinel-5P TROPOMI
+  Access: Available via CDSE OData API (requires registration)
+  Flood requirements met: cloudy_conditions, emergency_response
+
+  [COPERNICUS_EMS]  Copernicus Emergency Management Service
+  Access: On-demand activation service — https://emergency.copernicus.eu
+  Flood requirements met: flood_detection, flood_extent_assessment, cloudy_conditions, night_operations, emergency_response
+
+  [COPERNICUS_CLMS]  Copernicus Land Monitoring Service
+  Access: Pre-processed archive products — https://land.copernicus.eu
+  Flood requirements met: flood_extent_assessment, cloudy_conditions, night_operations, emergency_response
+
+  [CDSE]  CDSE Platform
+  Access: Access platform (STAC, OData, openEO) — https://dataspace.copernicus.eu
+  Flood requirements met: flood_detection, flood_extent_assessment, cloudy_conditions, night_operations, emergency_response
+
+  [EUMETSAT]  EUMETSAT
+  Access: Meteorological data — https://data.eumetsat.int
+  Flood requirements met: cloudy_conditions, night_operations, emergency_response
+
+----------------------------------------------------------------------
+SENSOR RECOMMENDATION BY SCENARIO
+----------------------------------------------------------------------
+
+  Active flood event (cloudy):
+    -> Sentinel-1 SAR                      [AVAILABLE]
+
+  Active flood event (clear sky):
+    -> Sentinel-1 SAR                      [AVAILABLE]
+    -> Sentinel-2 Optical                  [AVAILABLE]
+    -> sentinel_3                          [external service (see metadata)]
+
+  Night-time monitoring:
+    -> Sentinel-1 SAR                      [AVAILABLE]
+
+  Post-event damage assessment:
+    -> Sentinel-2 Optical                  [AVAILABLE]
+    -> Sentinel-1 SAR                      [AVAILABLE]
+
+  Continental overview:
+    -> sentinel_3                          [external service (see metadata)]
+
+  Upstream rainfall monitoring:
+    -> eumetsat                            [external service (see metadata)]
+
+  Emergency mapping activation:
+    -> copernicus_ems                      [external service (see metadata)]
+
+======================================================================

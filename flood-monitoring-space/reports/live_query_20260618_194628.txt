@@ -1,0 +1,58 @@
+======================================================================
+LIVE STAC AVAILABILITY QUERY — FEDERATED FLOOD MONITORING DATA SPACE
+======================================================================
+Query time:    2026-06-18 19:46:28
+STAC endpoint: https://catalogue.dataspace.copernicus.eu/stac/search
+AOI:           Central Europe (Poland / Czech Republic / Germany)
+Bbox:          [14.0, 49.5, 23.0, 54.5]
+Time window:   2024-09-01T00:00:00Z/2024-09-15T23:59:59Z
+
+----------------------------------------------------------------------
+PROVIDER AVAILABILITY
+----------------------------------------------------------------------
+
+  [SENTINEL_1]  Sentinel-1 SAR
+  Status:   NO RESULTS
+  Flood requirements met: flood_detection, flood_extent_assessment, cloudy_conditions, night_operations, emergency_response
+
+  [SENTINEL_2]  Sentinel-2 Optical
+  Status:   NO RESULTS
+  Flood requirements met: flood_detection, flood_extent_assessment, emergency_response
+
+  [SENTINEL_3]  Sentinel-3 OLCI
+  Status:   NO RESULTS
+  Flood requirements met: flood_detection, flood_extent_assessment, emergency_response
+
+  [SENTINEL_5P]  Sentinel-5P TROPOMI
+  Status:   NO RESULTS
+  Flood requirements met: cloudy_conditions, emergency_response
+
+----------------------------------------------------------------------
+SENSOR RECOMMENDATION BY SCENARIO
+----------------------------------------------------------------------
+
+  Active flood event (cloudy):
+    -> Sentinel-1 SAR                      [NO DATA IN WINDOW]
+
+  Active flood event (clear sky):
+    -> Sentinel-1 SAR                      [NO DATA IN WINDOW]
+    -> Sentinel-2 Optical                  [NO DATA IN WINDOW]
+    -> Sentinel-3 OLCI                     [NO DATA IN WINDOW]
+
+  Night-time monitoring:
+    -> Sentinel-1 SAR                      [NO DATA IN WINDOW]
+
+  Post-event damage assessment:
+    -> Sentinel-2 Optical                  [NO DATA IN WINDOW]
+    -> Sentinel-1 SAR                      [NO DATA IN WINDOW]
+
+  Continental overview:
+    -> Sentinel-3 OLCI                     [NO DATA IN WINDOW]
+
+  Upstream rainfall monitoring:
+    -> eumetsat                            [external service (see metadata)]
+
+  Emergency mapping activation:
+    -> copernicus_ems                      [external service (see metadata)]
+
+======================================================================
