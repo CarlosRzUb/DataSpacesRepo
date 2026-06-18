@@ -1,0 +1,64 @@
+{
+  "provider_id": "sentinel_5p",
+  "provider_label": "Sentinel-5P (TROPOMI)",
+  "organization": "ESA / Copernicus",
+  "type": "satellite_mission",
+  "sensor_type": "TROPOMI (TROPOspheric Monitoring Instrument) — UV/VIS/NIR/SWIR spectrometer",
+  "spatial_resolution": "3.5 x 5.5 km (since August 2019)",
+  "revisit_time": "Daily global coverage",
+  "access_url": "https://dataspace.copernicus.eu",
+  "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+  "collection_id": "SENTINEL-5P",
+  "description": "Sentinel-5P carries the TROPOMI instrument for daily global atmospheric monitoring at unprecedented spatial resolution. While primarily an atmospheric mission, it supports flood emergency response by detecting methane releases from flooded wetlands, monitoring NO2 and SO2 from industrial accidents accompanying floods, and assessing aerosol and cloud coverage to plan optical satellite observations.",
+  "operational_requirements": {
+    "flood_detection": {
+      "supported": false,
+      "notes": "Atmospheric sensor; does not directly detect surface flooding"
+    },
+    "flood_extent_assessment": {
+      "supported": false,
+      "notes": "3.5km resolution and atmospheric focus make it unsuitable for flood extent delineation"
+    },
+    "cloudy_conditions": {
+      "supported": true,
+      "notes": "Cloud fraction and aerosol products identify when and where optical satellite observation windows are available"
+    },
+    "night_operations": {
+      "supported": false,
+      "notes": "Passive UV/VIS instrument requires solar illumination for most products"
+    },
+    "emergency_response": {
+      "supported": true,
+      "notes": "Detects methane (CH4) from flooded organic soils and wetlands; monitors NO2/SO2 from industrial accidents triggered by flooding; supports multi-hazard emergency assessment"
+    }
+  },
+  "strengths": [
+    "Daily global atmospheric coverage",
+    "Highest-resolution spaceborne atmospheric spectrometer for operational use",
+    "Detects secondary hazards co-occurring with floods (industrial accidents, gas leaks)",
+    "Cloud fraction product guides planning of optical satellite tasking",
+    "Free and open access",
+    "Available since October 2017"
+  ],
+  "limitations": [
+    "Does not detect surface flooding directly",
+    "3.5km pixel size far too coarse for flood extent mapping",
+    "Primarily an atmospheric instrument; flood applications are ancillary",
+    "Requires atmospheric chemistry expertise to interpret correctly"
+  ],
+  "products": [
+    "NO2 (Nitrogen Dioxide)",
+    "SO2 (Sulphur Dioxide)",
+    "CH4 (Methane)",
+    "CO (Carbon Monoxide)",
+    "O3 (Ozone)",
+    "HCHO (Formaldehyde)",
+    "Aerosol Index",
+    "Cloud fraction"
+  ],
+  "recommended_for": [
+    "Multi-hazard emergency assessment alongside surface flood mapping",
+    "Methane monitoring from flooded organic soils",
+    "Optical satellite observation window planning using cloud fraction data"
+  ]
+}

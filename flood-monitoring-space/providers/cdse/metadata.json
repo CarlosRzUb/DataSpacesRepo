@@ -1,0 +1,63 @@
+{
+  "provider_id": "cdse",
+  "provider_label": "Copernicus Data Space Ecosystem (CDSE)",
+  "organization": "European Commission / ESA",
+  "type": "data_access_platform",
+  "sensor_type": "Platform (aggregates Sentinel-1, Sentinel-2, Sentinel-3, Sentinel-5P and additional datasets)",
+  "spatial_resolution": "Varies by dataset (inherits from hosted missions: 5m - 1km)",
+  "revisit_time": "Varies by dataset; typically data available within 3-6 hours of satellite acquisition",
+  "access_url": "https://dataspace.copernicus.eu",
+  "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+  "collection_id": "Multiple (SENTINEL-1, SENTINEL-2-L2A, SENTINEL-3, SENTINEL-5P, CCM-SAR, ...)",
+  "description": "The Copernicus Data Space Ecosystem is the central European platform providing unified access to all Sentinel mission data and derived Copernicus products. It offers a STAC catalogue API, OData API, openEO processing environment, and Jupyter notebook integration. It is the primary access gateway aggregating satellite observations from multiple providers into a single federated discovery and download interface.",
+  "operational_requirements": {
+    "flood_detection": {
+      "supported": true,
+      "notes": "Provides unified STAC API access to Sentinel-1 SAR products enabling all-weather flood detection workflows without managing multiple data sources"
+    },
+    "flood_extent_assessment": {
+      "supported": true,
+      "notes": "Single API endpoint for both Sentinel-1 (all-weather) and Sentinel-2 (optical) data enables combined flood extent workflows"
+    },
+    "cloudy_conditions": {
+      "supported": true,
+      "notes": "Platform-level access to SAR products enables cloud-independent monitoring; cloud fraction metadata aids observation planning"
+    },
+    "night_operations": {
+      "supported": true,
+      "notes": "SAR products accessible through CDSE support night-time flood monitoring operations"
+    },
+    "emergency_response": {
+      "supported": true,
+      "notes": "Fast data access (within hours of acquisition), on-demand processing via openEO, and bulk download capabilities support time-critical emergency operations"
+    }
+  },
+  "strengths": [
+    "Single STAC API endpoint covering all Sentinel missions and Copernicus products",
+    "Free registration with 500 processing units/month included",
+    "OData and STAC interfaces for programmatic access",
+    "openEO processing environment for cloud-based EO analysis",
+    "Jupyter notebook environment with co-located compute",
+    "Data available within 3-6 hours of satellite pass",
+    "Covers full Sentinel archive from mission start"
+  ],
+  "limitations": [
+    "Platform access layer, not a primary data source in itself",
+    "Free tier has processing unit limits for large-scale cloud processing",
+    "STAC catalogue search can be slow for very broad spatiotemporal queries",
+    "Requires registration and authentication for data download"
+  ],
+  "products": [
+    "Sentinel-1 GRD, SLC, OCN",
+    "Sentinel-2 L1C and L2A",
+    "Sentinel-3 OLCI and SLSTR products",
+    "Sentinel-5P atmospheric products",
+    "CCM (Copernicus Contributing Missions) SAR and optical",
+    "Digital Elevation Models (SRTM, Copernicus DEM)"
+  ],
+  "recommended_for": [
+    "Unified programmatic access to all Sentinel data for flood monitoring workflows",
+    "STAC-based resource discovery across multiple EO collections",
+    "Cloud-based processing of large SAR and optical datasets via openEO"
+  ]
+}

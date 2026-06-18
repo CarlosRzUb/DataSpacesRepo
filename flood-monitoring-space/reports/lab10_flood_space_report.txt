@@ -1,0 +1,235 @@
+======================================================================
+FEDERATED EO DATA SPACE FOR NATIONAL FLOOD MONITORING
+Data Spaces and Federated Data Engineering — Labs 10-12
+======================================================================
+Report generated:    2026-06-18 19:41:15
+Catalog generated:   2026-06-18T19:40:59.285336
+Total providers:     8
+
+----------------------------------------------------------------------
+REGISTERED PROVIDERS
+----------------------------------------------------------------------
+  [5/5] cdse                      | Copernicus Data Space Ecosystem (CDSE) | European Commission / ESA
+  [4/5] copernicus_clms           | Copernicus Land Monitoring Service (CLMS) | European Environment Agency (EEA) / European Commission
+  [5/5] copernicus_ems            | Copernicus Emergency Management Service (CEMS) | European Commission / JRC / DG ECHO
+  [3/5] eumetsat                  | EUMETSAT                            | European Organisation for the Exploitation of Meteorological Satellites
+  [5/5] sentinel_1                | Sentinel-1                          | ESA / Copernicus
+  [3/5] sentinel_2                | Sentinel-2                          | ESA / Copernicus
+  [3/5] sentinel_3                | Sentinel-3                          | ESA / Copernicus / EUMETSAT
+  [2/5] sentinel_5p               | Sentinel-5P (TROPOMI)               | ESA / Copernicus
+
+----------------------------------------------------------------------
+OPERATIONAL REQUIREMENTS COVERAGE
+----------------------------------------------------------------------
+
+  flood_detection  (5/8 providers support this)
+  Supported:
+    + Copernicus Data Space Ecosystem (CDSE)
+    + Copernicus Emergency Management Service (CEMS)
+    + Sentinel-1
+    + Sentinel-2
+    + Sentinel-3
+  Not supported:
+    - Copernicus Land Monitoring Service (CLMS)
+    - EUMETSAT
+    - Sentinel-5P (TROPOMI)
+
+  flood_extent_assessment  (6/8 providers support this)
+  Supported:
+    + Copernicus Data Space Ecosystem (CDSE)
+    + Copernicus Land Monitoring Service (CLMS)
+    + Copernicus Emergency Management Service (CEMS)
+    + Sentinel-1
+    + Sentinel-2
+    + Sentinel-3
+  Not supported:
+    - EUMETSAT
+    - Sentinel-5P (TROPOMI)
+
+  cloudy_conditions  (6/8 providers support this)
+  Supported:
+    + Copernicus Data Space Ecosystem (CDSE)
+    + Copernicus Land Monitoring Service (CLMS)
+    + Copernicus Emergency Management Service (CEMS)
+    + EUMETSAT
+    + Sentinel-1
+    + Sentinel-5P (TROPOMI)
+  Not supported:
+    - Sentinel-2
+    - Sentinel-3
+
+  night_operations  (5/8 providers support this)
+  Supported:
+    + Copernicus Data Space Ecosystem (CDSE)
+    + Copernicus Land Monitoring Service (CLMS)
+    + Copernicus Emergency Management Service (CEMS)
+    + EUMETSAT
+    + Sentinel-1
+  Not supported:
+    - Sentinel-2
+    - Sentinel-3
+    - Sentinel-5P (TROPOMI)
+
+  emergency_response  (8/8 providers support this)
+  Supported:
+    + Copernicus Data Space Ecosystem (CDSE)
+    + Copernicus Land Monitoring Service (CLMS)
+    + Copernicus Emergency Management Service (CEMS)
+    + EUMETSAT
+    + Sentinel-1
+    + Sentinel-2
+    + Sentinel-3
+    + Sentinel-5P (TROPOMI)
+
+----------------------------------------------------------------------
+COVERAGE MATRIX
+----------------------------------------------------------------------
+  Provider                      FLD_DET  FLD_EXT  CLOUDY   NIGHT    EMERG    TOTAL
+  ---------------------------------------------------------------------------------
+  Copernicus Data Space Ecosystem (CDSE)      YES      YES      YES      YES      YES  5/5
+  Copernicus Land Monitoring Service (CLMS)       NO      YES      YES      YES      YES  4/5
+  Copernicus Emergency Management Service (CEMS)      YES      YES      YES      YES      YES  5/5
+  EUMETSAT                           NO       NO      YES      YES      YES  3/5
+  Sentinel-1                        YES      YES      YES      YES      YES  5/5
+  Sentinel-2                        YES      YES       NO       NO      YES  3/5
+  Sentinel-3                        YES      YES       NO       NO      YES  3/5
+  Sentinel-5P (TROPOMI)              NO       NO      YES       NO      YES  2/5
+  COVERAGE                          5/8      6/8      6/8      5/8      8/8
+
+----------------------------------------------------------------------
+PROVIDER DETAILS
+----------------------------------------------------------------------
+
+  [CDSE]
+  Label:        Copernicus Data Space Ecosystem (CDSE)
+  Organization: European Commission / ESA
+  Type:         data_access_platform
+  Sensor:       Platform (aggregates Sentinel-1, Sentinel-2, Sentinel-3, Sentinel-5P and additional datasets)
+  Resolution:   Varies by dataset (inherits from hosted missions: 5m - 1km)
+  Revisit:      Varies by dataset; typically data available within 3-6 hours of satellite acquisition
+  Access:       https://dataspace.copernicus.eu
+  API:          https://catalogue.dataspace.copernicus.eu/stac/search
+  Description:  The Copernicus Data Space Ecosystem is the central European platform providing unified access to all Sentinel mission data and derived Copernicus products. It offers a STAC catalogue API, OData API, openEO processing environment, and Jupyter notebook integration. It is the primary access gateway aggregating satellite observations from multiple providers into a single federated discovery and download interface.
+  Strengths:    Single STAC API endpoint covering all Sentinel missions and Copernicus products; Free registration with 500 processing units/month included; OData and STAC interfaces for programmatic access
+  Limitations:  Platform access layer, not a primary data source in itself; Free tier has processing unit limits for large-scale cloud processing
+  Supports:     flood_detection, flood_extent_assessment, cloudy_conditions, night_operations, emergency_response
+
+  [COPERNICUS_CLMS]
+  Label:        Copernicus Land Monitoring Service (CLMS)
+  Organization: European Environment Agency (EEA) / European Commission
+  Type:         thematic_land_monitoring_service
+  Sensor:       Multi-source (Sentinel-1, Sentinel-2, Landsat, MODIS, VHR commercial)
+  Resolution:   10-100m depending on product (EU-DEM 25m, HRL 10-100m, GSW 30m)
+  Revisit:      Annual to multi-year updates depending on product; Global Surface Water updated annually
+  Access:       https://land.copernicus.eu
+  API:          https://land.copernicus.eu/en/products
+  Description:  The Copernicus Land Monitoring Service delivers pan-European and global land-related datasets including digital elevation models, land cover classification, vegetation, and water-related products. Its datasets provide the essential baseline context for flood risk assessment, hydrological modelling, and post-flood impact analysis.
+  Strengths:    EU-DEM v1.1 provides 25m pan-European digital elevation model for hydrological modelling; Global Surface Water (GSW) tracks water body changes from 1984 to present at 30m; CORINE Land Cover classifies land use across Europe for flood impact stratification
+  Limitations:  Not a real-time or near-real-time monitoring system; Products updated annually or less frequently
+  Supports:     flood_extent_assessment, cloudy_conditions, night_operations, emergency_response
+
+  [COPERNICUS_EMS]
+  Label:        Copernicus Emergency Management Service (CEMS)
+  Organization: European Commission / JRC / DG ECHO
+  Type:         operational_emergency_service
+  Sensor:       Multi-source (Sentinel-1 SAR, Sentinel-2, VHR commercial imagery, UAV)
+  Resolution:   Varies by activation; typically 2.5-10m for rapid mapping products
+  Revisit:      On-demand activation; rapid mapping products delivered within hours to 1-2 days
+  Access:       https://emergency.copernicus.eu
+  API:          https://emergency.copernicus.eu/mapping/activations
+  Description:  The Copernicus Emergency Management Service provides on-demand geo-information products for emergency management covering all phases of the disaster management cycle. The Rapid Mapping component delivers flood delineation, grading and damage assessment maps within hours of activation. EFAS and GloFAS provide flood forecasting from 15 to 30 days ahead.
+  Strengths:    Operationally validated emergency mapping products used by European civil protection agencies; Standardised cartographic output compatible with emergency management workflows; 24/7 service availability for activations within Europe and globally
+  Limitations:  Requires formal activation by authorised national civil protection authority; Not a continuous monitoring system; activations are event-driven
+  Supports:     flood_detection, flood_extent_assessment, cloudy_conditions, night_operations, emergency_response
+
+  [EUMETSAT]
+  Label:        EUMETSAT
+  Organization: European Organisation for the Exploitation of Meteorological Satellites
+  Type:         meteorological_satellite_agency
+  Sensor:       SEVIRI (Meteosat MSG geostationary), AVHRR / ASCAT / MHS (Metop polar-orbiting)
+  Resolution:   3km (SEVIRI HRV channel), 15km (SEVIRI standard), 25km (ASCAT soil moisture)
+  Revisit:      15 minutes (Meteosat MSG SEVIRI); 12-hour repeat (Metop polar orbit)
+  Access:       https://data.eumetsat.int
+  API:          https://api.eumetsat.int/data/browse/
+  Description:  EUMETSAT operates Europe's meteorological satellites providing continuous atmospheric and meteorological monitoring. For flood monitoring, EUMETSAT supplies high-frequency precipitation estimates, soil moisture data, and severe weather products through the Hydrology Satellite Application Facility (H SAF), which are essential for flood early warning and upstream rainfall monitoring.
+  Strengths:    15-minute precipitation estimates from geostationary Meteosat MSG SEVIRI; Hydrology SAF (H SAF) delivers operational near-real-time precipitation and soil moisture; Continuous 24/7 monitoring over Europe, Africa and the Atlantic
+  Limitations:  Spatial resolution (3-25km) too coarse for detailed flood extent mapping; Primarily meteorological focus; surface flood detection requires complementary SAR/optical data
+  Supports:     cloudy_conditions, night_operations, emergency_response
+
+  [SENTINEL_1]
+  Label:        Sentinel-1
+  Organization: ESA / Copernicus
+  Type:         satellite_mission
+  Sensor:       SAR C-band (active microwave)
+  Resolution:   5-40m (mode dependent; 10m in standard IW mode)
+  Revisit:      6 days per satellite; ~3 days over Europe with constellation
+  Access:       https://dataspace.copernicus.eu
+  API:          https://catalogue.dataspace.copernicus.eu/stac/search
+  Description:  Sentinel-1 is a polar-orbiting, all-weather, day-and-night C-band SAR mission. It is the primary satellite source for flood mapping in Europe and globally, providing backscatter imagery that clearly distinguishes open water from land regardless of cloud cover or lighting conditions.
+  Strengths:    All-weather capability through cloud penetration; Day and night operations with active sensor; 10m spatial resolution in Interferometric Wide (IW) mode
+  Limitations:  SAR imagery requires specialist processing skills (speckle, geometric correction); Flooded vegetation and urban areas produce complex backscatter signatures
+  Supports:     flood_detection, flood_extent_assessment, cloudy_conditions, night_operations, emergency_response
+
+  [SENTINEL_2]
+  Label:        Sentinel-2
+  Organization: ESA / Copernicus
+  Type:         satellite_mission
+  Sensor:       Multispectral MSI (13 bands, 443-2190nm)
+  Resolution:   10m (visible/NIR), 20m (red-edge/SWIR), 60m (atmospheric)
+  Revisit:      5 days at equator; 2-3 days at mid-latitudes (A+B constellation)
+  Access:       https://dataspace.copernicus.eu
+  API:          https://catalogue.dataspace.copernicus.eu/stac/search
+  Description:  Sentinel-2 is a polar-orbiting multispectral optical mission optimised for land monitoring. It provides high-resolution surface reflectance imagery enabling accurate computation of spectral water indices (NDWI, MNDWI) for flood extent mapping under clear sky conditions.
+  Strengths:    10m spatial resolution in visible and NIR bands; 290km swath width for large area coverage; Dedicated water detection bands (B3 Green, B8 NIR, B11/B12 SWIR)
+  Limitations:  Completely blocked by cloud cover, which frequently accompanies flood events; No night-time capability
+  Supports:     flood_detection, flood_extent_assessment, emergency_response
+
+  [SENTINEL_3]
+  Label:        Sentinel-3
+  Organization: ESA / Copernicus / EUMETSAT
+  Type:         satellite_mission
+  Sensor:       OLCI (Ocean and Land Colour Instrument, 21 bands) + SLSTR (Sea and Land Surface Temperature Radiometer)
+  Resolution:   300m (OLCI), 500m/1km (SLSTR)
+  Revisit:      Less than 2 days globally (A+B tandem constellation)
+  Access:       https://dataspace.copernicus.eu
+  API:          https://catalogue.dataspace.copernicus.eu/stac/search
+  Description:  Sentinel-3 is a multi-instrument ocean and land monitoring mission providing global coverage at medium resolution. Its OLCI sensor enables large-scale water body monitoring and flood extent estimation, while SLSTR provides surface temperature data useful for assessing flood-affected areas and evaporation dynamics.
+  Strengths:    Near-daily global revisit (< 2 days with A+B tandem); Wide area coverage at 300m enabling continental-scale flood monitoring; 21 OLCI spectral bands optimised for water and land colour
+  Limitations:  300m resolution too coarse for detailed urban or small river flood mapping; Optical instrument blocked by clouds
+  Supports:     flood_detection, flood_extent_assessment, emergency_response
+
+  [SENTINEL_5P]
+  Label:        Sentinel-5P (TROPOMI)
+  Organization: ESA / Copernicus
+  Type:         satellite_mission
+  Sensor:       TROPOMI (TROPOspheric Monitoring Instrument) — UV/VIS/NIR/SWIR spectrometer
+  Resolution:   3.5 x 5.5 km (since August 2019)
+  Revisit:      Daily global coverage
+  Access:       https://dataspace.copernicus.eu
+  API:          https://catalogue.dataspace.copernicus.eu/stac/search
+  Description:  Sentinel-5P carries the TROPOMI instrument for daily global atmospheric monitoring at unprecedented spatial resolution. While primarily an atmospheric mission, it supports flood emergency response by detecting methane releases from flooded wetlands, monitoring NO2 and SO2 from industrial accidents accompanying floods, and assessing aerosol and cloud coverage to plan optical satellite observations.
+  Strengths:    Daily global atmospheric coverage; Highest-resolution spaceborne atmospheric spectrometer for operational use; Detects secondary hazards co-occurring with floods (industrial accidents, gas leaks)
+  Limitations:  Does not detect surface flooding directly; 3.5km pixel size far too coarse for flood extent mapping
+  Supports:     cloudy_conditions, emergency_response
+
+----------------------------------------------------------------------
+FEDERATION SUMMARY
+----------------------------------------------------------------------
+  Total EO resources in data space: 8
+  Originating organizations:        6
+  Resource types represented:       5
+    - operational_emergency_service: 1
+    - satellite_mission: 4
+    - meteorological_satellite_agency: 1
+    - data_access_platform: 1
+    - thematic_land_monitoring_service: 1
+
+  flood_detection                     5/8 providers (62% coverage)
+  flood_extent_assessment             6/8 providers (75% coverage)
+  cloudy_conditions                   6/8 providers (75% coverage)
+  night_operations                    5/8 providers (62% coverage)
+  emergency_response                  8/8 providers (100% coverage)
+
+  Requirements with full (100%) provider coverage: 1
+    * emergency_response
+======================================================================

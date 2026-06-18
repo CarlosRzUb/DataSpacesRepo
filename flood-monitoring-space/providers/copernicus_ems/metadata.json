@@ -1,0 +1,63 @@
+{
+  "provider_id": "copernicus_ems",
+  "provider_label": "Copernicus Emergency Management Service (CEMS)",
+  "organization": "European Commission / JRC / DG ECHO",
+  "type": "operational_emergency_service",
+  "sensor_type": "Multi-source (Sentinel-1 SAR, Sentinel-2, VHR commercial imagery, UAV)",
+  "spatial_resolution": "Varies by activation; typically 2.5-10m for rapid mapping products",
+  "revisit_time": "On-demand activation; rapid mapping products delivered within hours to 1-2 days",
+  "access_url": "https://emergency.copernicus.eu",
+  "api_endpoint": "https://emergency.copernicus.eu/mapping/activations",
+  "collection_id": "N/A (activation-based service)",
+  "description": "The Copernicus Emergency Management Service provides on-demand geo-information products for emergency management covering all phases of the disaster management cycle. The Rapid Mapping component delivers flood delineation, grading and damage assessment maps within hours of activation. EFAS and GloFAS provide flood forecasting from 15 to 30 days ahead.",
+  "operational_requirements": {
+    "flood_detection": {
+      "supported": true,
+      "notes": "Rapid Mapping delivers standardised flood delineation maps fusing SAR and optical imagery; activation triggered by national civil protection authorities"
+    },
+    "flood_extent_assessment": {
+      "supported": true,
+      "notes": "Flood extent delineation maps and grading maps (damage severity by land-use class) produced at very high resolution for affected areas"
+    },
+    "cloudy_conditions": {
+      "supported": true,
+      "notes": "Service integrates all-weather SAR (Sentinel-1) as primary source when clouds prevent optical imaging"
+    },
+    "night_operations": {
+      "supported": true,
+      "notes": "SAR-based products support night-time operations; service operates 24/7 for emergency activations"
+    },
+    "emergency_response": {
+      "supported": true,
+      "notes": "Core mission of the service; products directly support civil protection, humanitarian aid and disaster response coordination"
+    }
+  },
+  "strengths": [
+    "Operationally validated emergency mapping products used by European civil protection agencies",
+    "Standardised cartographic output compatible with emergency management workflows",
+    "24/7 service availability for activations within Europe and globally",
+    "Integrates best available imagery (SAR, optical, VHR) for each event",
+    "Includes European Flood Awareness System (EFAS) for 15-day flood forecasting",
+    "Global Flood Awareness System (GloFAS) for 30-day global forecasts",
+    "Free access to all activation products and historical archive"
+  ],
+  "limitations": [
+    "Requires formal activation by authorised national civil protection authority",
+    "Not a continuous monitoring system; activations are event-driven",
+    "Turnaround time for first products typically 12-24 hours after activation",
+    "Coverage limited to the declared area of interest",
+    "Not suitable for autonomous monitoring without prior activation"
+  ],
+  "products": [
+    "Flood delineation maps",
+    "Flood grading maps (damage assessment by land use)",
+    "Reference maps (pre-event land use context)",
+    "EFAS flood forecasts (15-day)",
+    "GloFAS flood forecasts (30-day global)"
+  ],
+  "recommended_for": [
+    "Activated emergency response requiring validated cartographic products",
+    "Multi-day flood event coordination across multiple agencies",
+    "Early warning through EFAS/GloFAS forecasting systems"
+  ]
+}

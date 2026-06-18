@@ -1,0 +1,59 @@
+{
+  "provider_id": "sentinel_3",
+  "provider_label": "Sentinel-3",
+  "organization": "ESA / Copernicus / EUMETSAT",
+  "type": "satellite_mission",
+  "sensor_type": "OLCI (Ocean and Land Colour Instrument, 21 bands) + SLSTR (Sea and Land Surface Temperature Radiometer)",
+  "spatial_resolution": "300m (OLCI), 500m/1km (SLSTR)",
+  "revisit_time": "Less than 2 days globally (A+B tandem constellation)",
+  "access_url": "https://dataspace.copernicus.eu",
+  "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+  "collection_id": "SENTINEL-3",
+  "description": "Sentinel-3 is a multi-instrument ocean and land monitoring mission providing global coverage at medium resolution. Its OLCI sensor enables large-scale water body monitoring and flood extent estimation, while SLSTR provides surface temperature data useful for assessing flood-affected areas and evaporation dynamics.",
+  "operational_requirements": {
+    "flood_detection": {
+      "supported": true,
+      "notes": "OLCI water bands enable flood detection at 300m resolution; suitable for large river and coastal flood events"
+    },
+    "flood_extent_assessment": {
+      "supported": true,
+      "notes": "Global Surface Water monitoring at 300m; best suited for large-scale flood extents covering hundreds of square kilometres"
+    },
+    "cloudy_conditions": {
+      "supported": false,
+      "notes": "Optical instrument; cloud cover limits observations, though near-daily revisit improves cloud-free chance"
+    },
+    "night_operations": {
+      "supported": false,
+      "notes": "Passive optical sensor; no night-time capability for OLCI"
+    },
+    "emergency_response": {
+      "supported": true,
+      "notes": "Near-daily coverage supports operational monitoring of evolving large-scale flood situations"
+    }
+  },
+  "strengths": [
+    "Near-daily global revisit (< 2 days with A+B tandem)",
+    "Wide area coverage at 300m enabling continental-scale flood monitoring",
+    "21 OLCI spectral bands optimised for water and land colour",
+    "Synergy between OLCI and SLSTR instruments",
+    "Free and open access",
+    "Consistent long-term record since 2016 (3A) and 2018 (3B)"
+  ],
+  "limitations": [
+    "300m resolution too coarse for detailed urban or small river flood mapping",
+    "Optical instrument blocked by clouds",
+    "Less commonly used than Sentinel-1/2 for emergency flood response"
+  ],
+  "products": [
+    "OLCI Level-1B (radiances)",
+    "OLCI Level-2 Land (vegetation, water)",
+    "SLSTR Level-1B (brightness temperatures)",
+    "SLSTR Level-2 Land Surface Temperature"
+  ],
+  "recommended_for": [
+    "Large-scale river basin and coastal flood monitoring",
+    "Continental overview of flood evolution over multiple days",
+    "Land surface temperature change detection in flooded areas"
+  ]
+}

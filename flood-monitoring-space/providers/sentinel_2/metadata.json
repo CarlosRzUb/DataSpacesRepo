@@ -1,0 +1,55 @@
+{
+  "provider_id": "sentinel_2",
+  "provider_label": "Sentinel-2",
+  "organization": "ESA / Copernicus",
+  "type": "satellite_mission",
+  "sensor_type": "Multispectral MSI (13 bands, 443-2190nm)",
+  "spatial_resolution": "10m (visible/NIR), 20m (red-edge/SWIR), 60m (atmospheric)",
+  "revisit_time": "5 days at equator; 2-3 days at mid-latitudes (A+B constellation)",
+  "access_url": "https://dataspace.copernicus.eu",
+  "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+  "collection_id": "SENTINEL-2-L2A",
+  "description": "Sentinel-2 is a polar-orbiting multispectral optical mission optimised for land monitoring. It provides high-resolution surface reflectance imagery enabling accurate computation of spectral water indices (NDWI, MNDWI) for flood extent mapping under clear sky conditions.",
+  "operational_requirements": {
+    "flood_detection": {
+      "supported": true,
+      "notes": "NDWI (Green-NIR / Green+NIR) and MNDWI (Green-SWIR / Green+SWIR) indices clearly separate water from land at 10-20m resolution"
+    },
+    "flood_extent_assessment": {
+      "supported": true,
+      "notes": "Water body delineation from spectral indices provides detailed flood extent maps at 10m resolution in cloud-free conditions"
+    },
+    "cloudy_conditions": {
+      "supported": false,
+      "notes": "Optical sensor is completely blocked by cloud cover; cloud fraction above 20% severely limits usability during flood events"
+    },
+    "night_operations": {
+      "supported": false,
+      "notes": "Passive optical sensor requires solar illumination; no night-time acquisition capability"
+    },
+    "emergency_response": {
+      "supported": true,
+      "notes": "Complementary to SAR for post-event damage assessment in cloud-free windows; 10m resolution supports detailed impact mapping"
+    }
+  },
+  "strengths": [
+    "10m spatial resolution in visible and NIR bands",
+    "290km swath width for large area coverage",
+    "Dedicated water detection bands (B3 Green, B8 NIR, B11/B12 SWIR)",
+    "Free and open access with full data continuity since 2015",
+    "Rich time series enabling pre-flood baseline computation",
+    "Complementary to Sentinel-1 SAR in cloud-free periods"
+  ],
+  "limitations": [
+    "Completely blocked by cloud cover, which frequently accompanies flood events",
+    "No night-time capability",
+    "Dense vegetation canopy can mask shallow flooding beneath",
+    "Atmospheric correction required for accurate water index computation"
+  ],
+  "products": ["L1C (Top-of-Atmosphere reflectance)", "L2A (Bottom-of-Atmosphere / surface reflectance)"],
+  "recommended_for": [
+    "Post-event flood extent mapping in clear sky windows",
+    "Vegetation and land-use context for flood impact assessment",
+    "Multi-temporal analysis comparing pre- and post-flood land cover"
+  ]
+}

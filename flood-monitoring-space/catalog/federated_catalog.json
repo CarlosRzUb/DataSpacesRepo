@@ -1,0 +1,506 @@
+{
+  "catalog_name": "Federated EO Data Space for National Flood Monitoring",
+  "generated_at": "2026-06-18T19:40:59.285336",
+  "provider_count": 8,
+  "operational_requirements": [
+    "flood_detection",
+    "flood_extent_assessment",
+    "cloudy_conditions",
+    "night_operations",
+    "emergency_response"
+  ],
+  "providers": [
+    {
+      "provider_id": "cdse",
+      "provider_label": "Copernicus Data Space Ecosystem (CDSE)",
+      "organization": "European Commission / ESA",
+      "type": "data_access_platform",
+      "sensor_type": "Platform (aggregates Sentinel-1, Sentinel-2, Sentinel-3, Sentinel-5P and additional datasets)",
+      "spatial_resolution": "Varies by dataset (inherits from hosted missions: 5m - 1km)",
+      "revisit_time": "Varies by dataset; typically data available within 3-6 hours of satellite acquisition",
+      "access_url": "https://dataspace.copernicus.eu",
+      "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+      "collection_id": "Multiple (SENTINEL-1, SENTINEL-2-L2A, SENTINEL-3, SENTINEL-5P, CCM-SAR, ...)",
+      "description": "The Copernicus Data Space Ecosystem is the central European platform providing unified access to all Sentinel mission data and derived Copernicus products. It offers a STAC catalogue API, OData API, openEO processing environment, and Jupyter notebook integration. It is the primary access gateway aggregating satellite observations from multiple providers into a single federated discovery and download interface.",
+      "operational_requirements": {
+        "flood_detection": {
+          "supported": true,
+          "notes": "Provides unified STAC API access to Sentinel-1 SAR products enabling all-weather flood detection workflows without managing multiple data sources"
+        },
+        "flood_extent_assessment": {
+          "supported": true,
+          "notes": "Single API endpoint for both Sentinel-1 (all-weather) and Sentinel-2 (optical) data enables combined flood extent workflows"
+        },
+        "cloudy_conditions": {
+          "supported": true,
+          "notes": "Platform-level access to SAR products enables cloud-independent monitoring; cloud fraction metadata aids observation planning"
+        },
+        "night_operations": {
+          "supported": true,
+          "notes": "SAR products accessible through CDSE support night-time flood monitoring operations"
+        },
+        "emergency_response": {
+          "supported": true,
+          "notes": "Fast data access (within hours of acquisition), on-demand processing via openEO, and bulk download capabilities support time-critical emergency operations"
+        }
+      },
+      "strengths": [
+        "Single STAC API endpoint covering all Sentinel missions and Copernicus products",
+        "Free registration with 500 processing units/month included",
+        "OData and STAC interfaces for programmatic access",
+        "openEO processing environment for cloud-based EO analysis",
+        "Jupyter notebook environment with co-located compute",
+        "Data available within 3-6 hours of satellite pass",
+        "Covers full Sentinel archive from mission start"
+      ],
+      "limitations": [
+        "Platform access layer, not a primary data source in itself",
+        "Free tier has processing unit limits for large-scale cloud processing",
+        "STAC catalogue search can be slow for very broad spatiotemporal queries",
+        "Requires registration and authentication for data download"
+      ],
+      "products": [
+        "Sentinel-1 GRD, SLC, OCN",
+        "Sentinel-2 L1C and L2A",
+        "Sentinel-3 OLCI and SLSTR products",
+        "Sentinel-5P atmospheric products",
+        "CCM (Copernicus Contributing Missions) SAR and optical",
+        "Digital Elevation Models (SRTM, Copernicus DEM)"
+      ],
+      "recommended_for": [
+        "Unified programmatic access to all Sentinel data for flood monitoring workflows",
+        "STAC-based resource discovery across multiple EO collections",
+        "Cloud-based processing of large SAR and optical datasets via openEO"
+      ]
+    },
+    {
+      "provider_id": "copernicus_clms",
+      "provider_label": "Copernicus Land Monitoring Service (CLMS)",
+      "organization": "European Environment Agency (EEA) / European Commission",
+      "type": "thematic_land_monitoring_service",
+      "sensor_type": "Multi-source (Sentinel-1, Sentinel-2, Landsat, MODIS, VHR commercial)",
+      "spatial_resolution": "10-100m depending on product (EU-DEM 25m, HRL 10-100m, GSW 30m)",
+      "revisit_time": "Annual to multi-year updates depending on product; Global Surface Water updated annually",
+      "access_url": "https://land.copernicus.eu",
+      "api_endpoint": "https://land.copernicus.eu/en/products",
+      "collection_id": "N/A (product-based service)",
+      "description": "The Copernicus Land Monitoring Service delivers pan-European and global land-related datasets including digital elevation models, land cover classification, vegetation, and water-related products. Its datasets provide the essential baseline context for flood risk assessment, hydrological modelling, and post-flood impact analysis.",
+      "operational_requirements": {
+        "flood_detection": {
+          "supported": false,
+          "notes": "Not a real-time detection service; provides baseline land and water datasets for context rather than active event monitoring"
+        },
+        "flood_extent_assessment": {
+          "supported": true,
+          "notes": "Global Surface Water (GSW) product provides 30m long-term water occurrence and change maps enabling flood extent comparison against historical water baselines"
+        },
+        "cloudy_conditions": {
+          "supported": true,
+          "notes": "Archived products are pre-processed and cloud-free composites; not affected by cloud cover at time of use"
+        },
+        "night_operations": {
+          "supported": true,
+          "notes": "Static archive products available at any time independent of illumination conditions"
+        },
+        "emergency_response": {
+          "supported": true,
+          "notes": "EU-DEM provides hydrological terrain analysis; imperviousness layers support urban flood risk; land cover data contextualises flood impact by use type"
+        }
+      },
+      "strengths": [
+        "EU-DEM v1.1 provides 25m pan-European digital elevation model for hydrological modelling",
+        "Global Surface Water (GSW) tracks water body changes from 1984 to present at 30m",
+        "CORINE Land Cover classifies land use across Europe for flood impact stratification",
+        "High Resolution Layers (HRL): imperviousness, forest, water bodies at 10-100m",
+        "Free and open access to all products",
+        "Long archive supporting historical baseline analysis"
+      ],
+      "limitations": [
+        "Not a real-time or near-real-time monitoring system",
+        "Products updated annually or less frequently",
+        "EU-DEM resolution (25m) insufficient for urban drainage modelling",
+        "Primarily European coverage for high-resolution products"
+      ],
+      "products": [
+        "EU-DEM v1.1 (25m Digital Elevation Model)",
+        "CORINE Land Cover (CLC)",
+        "Global Surface Water (GSW) - occurrence, seasonality, change",
+        "High Resolution Layers: imperviousness, forest, grassland, water bodies, small woody features",
+        "CLMS Riparian Zones dataset"
+      ],
+      "recommended_for": [
+        "Baseline flood risk assessment and hydrological modelling",
+        "Historical water body change analysis (GSW)",
+        "Urban flood impact stratification using imperviousness and land cover",
+        "Terrain analysis for flood pathway modelling using EU-DEM"
+      ]
+    },
+    {
+      "provider_id": "copernicus_ems",
+      "provider_label": "Copernicus Emergency Management Service (CEMS)",
+      "organization": "European Commission / JRC / DG ECHO",
+      "type": "operational_emergency_service",
+      "sensor_type": "Multi-source (Sentinel-1 SAR, Sentinel-2, VHR commercial imagery, UAV)",
+      "spatial_resolution": "Varies by activation; typically 2.5-10m for rapid mapping products",
+      "revisit_time": "On-demand activation; rapid mapping products delivered within hours to 1-2 days",
+      "access_url": "https://emergency.copernicus.eu",
+      "api_endpoint": "https://emergency.copernicus.eu/mapping/activations",
+      "collection_id": "N/A (activation-based service)",
+      "description": "The Copernicus Emergency Management Service provides on-demand geo-information products for emergency management covering all phases of the disaster management cycle. The Rapid Mapping component delivers flood delineation, grading and damage assessment maps within hours of activation. EFAS and GloFAS provide flood forecasting from 15 to 30 days ahead.",
+      "operational_requirements": {
+        "flood_detection": {
+          "supported": true,
+          "notes": "Rapid Mapping delivers standardised flood delineation maps fusing SAR and optical imagery; activation triggered by national civil protection authorities"
+        },
+        "flood_extent_assessment": {
+          "supported": true,
+          "notes": "Flood extent delineation maps and grading maps (damage severity by land-use class) produced at very high resolution for affected areas"
+        },
+        "cloudy_conditions": {
+          "supported": true,
+          "notes": "Service integrates all-weather SAR (Sentinel-1) as primary source when clouds prevent optical imaging"
+        },
+        "night_operations": {
+          "supported": true,
+          "notes": "SAR-based products support night-time operations; service operates 24/7 for emergency activations"
+        },
+        "emergency_response": {
+          "supported": true,
+          "notes": "Core mission of the service; products directly support civil protection, humanitarian aid and disaster response coordination"
+        }
+      },
+      "strengths": [
+        "Operationally validated emergency mapping products used by European civil protection agencies",
+        "Standardised cartographic output compatible with emergency management workflows",
+        "24/7 service availability for activations within Europe and globally",
+        "Integrates best available imagery (SAR, optical, VHR) for each event",
+        "Includes European Flood Awareness System (EFAS) for 15-day flood forecasting",
+        "Global Flood Awareness System (GloFAS) for 30-day global forecasts",
+        "Free access to all activation products and historical archive"
+      ],
+      "limitations": [
+        "Requires formal activation by authorised national civil protection authority",
+        "Not a continuous monitoring system; activations are event-driven",
+        "Turnaround time for first products typically 12-24 hours after activation",
+        "Coverage limited to the declared area of interest",
+        "Not suitable for autonomous monitoring without prior activation"
+      ],
+      "products": [
+        "Flood delineation maps",
+        "Flood grading maps (damage assessment by land use)",
+        "Reference maps (pre-event land use context)",
+        "EFAS flood forecasts (15-day)",
+        "GloFAS flood forecasts (30-day global)"
+      ],
+      "recommended_for": [
+        "Activated emergency response requiring validated cartographic products",
+        "Multi-day flood event coordination across multiple agencies",
+        "Early warning through EFAS/GloFAS forecasting systems"
+      ]
+    },
+    {
+      "provider_id": "eumetsat",
+      "provider_label": "EUMETSAT",
+      "organization": "European Organisation for the Exploitation of Meteorological Satellites",
+      "type": "meteorological_satellite_agency",
+      "sensor_type": "SEVIRI (Meteosat MSG geostationary), AVHRR / ASCAT / MHS (Metop polar-orbiting)",
+      "spatial_resolution": "3km (SEVIRI HRV channel), 15km (SEVIRI standard), 25km (ASCAT soil moisture)",
+      "revisit_time": "15 minutes (Meteosat MSG SEVIRI); 12-hour repeat (Metop polar orbit)",
+      "access_url": "https://data.eumetsat.int",
+      "api_endpoint": "https://api.eumetsat.int/data/browse/",
+      "collection_id": "EO:EUM:DAT:MSG:HRSEVIRI",
+      "description": "EUMETSAT operates Europe's meteorological satellites providing continuous atmospheric and meteorological monitoring. For flood monitoring, EUMETSAT supplies high-frequency precipitation estimates, soil moisture data, and severe weather products through the Hydrology Satellite Application Facility (H SAF), which are essential for flood early warning and upstream rainfall monitoring.",
+      "operational_requirements": {
+        "flood_detection": {
+          "supported": false,
+          "notes": "Meteorological sensors do not detect surface flooding directly; precipitation data supports upstream cause monitoring rather than flood surface detection"
+        },
+        "flood_extent_assessment": {
+          "supported": false,
+          "notes": "Coarse spatial resolution (3-25km) insufficient for flood extent delineation; atmospheric focus"
+        },
+        "cloudy_conditions": {
+          "supported": true,
+          "notes": "Microwave precipitation retrievals from Metop (MHS, AMSU) are cloud-penetrating; geostationary SEVIRI IR imagery monitors storm systems regardless of cloud cover"
+        },
+        "night_operations": {
+          "supported": true,
+          "notes": "IR and microwave instruments operate 24/7 independent of solar illumination; continuous precipitation monitoring day and night"
+        },
+        "emergency_response": {
+          "supported": true,
+          "notes": "H SAF near-real-time precipitation products feed into EFAS early warning; 15-minute MSG updates enable real-time tracking of extreme rainfall events"
+        }
+      },
+      "strengths": [
+        "15-minute precipitation estimates from geostationary Meteosat MSG SEVIRI",
+        "Hydrology SAF (H SAF) delivers operational near-real-time precipitation and soil moisture",
+        "Continuous 24/7 monitoring over Europe, Africa and the Atlantic",
+        "Essential upstream rainfall data for river flood early warning (feeds EFAS)",
+        "Long operational record since 1977 enabling climatological flood context",
+        "Global coverage via Metop polar-orbiting satellites"
+      ],
+      "limitations": [
+        "Spatial resolution (3-25km) too coarse for detailed flood extent mapping",
+        "Primarily meteorological focus; surface flood detection requires complementary SAR/optical data",
+        "Requires user registration and data service agreement for full access",
+        "Precipitation retrieval has uncertainty in complex orographic terrain"
+      ],
+      "products": [
+        "H SAF H60 - instantaneous rain rate (Metop microwave)",
+        "H SAF H90 - accumulated precipitation analysis",
+        "H SAF H16 - soil moisture (ASCAT)",
+        "SEVIRI High-Rate SEVIRI (HRSEVIRI) full-disc imagery",
+        "RGB cloud composites and severe convection products",
+        "Metop AVHRR imagery"
+      ],
+      "recommended_for": [
+        "Upstream rainfall monitoring for river flood early warning",
+        "Real-time precipitation tracking during active storm events",
+        "Soil saturation assessment before and during flood events",
+        "Feeding hydrological models and EFAS with real-time precipitation forcing"
+      ]
+    },
+    {
+      "provider_id": "sentinel_1",
+      "provider_label": "Sentinel-1",
+      "organization": "ESA / Copernicus",
+      "type": "satellite_mission",
+      "sensor_type": "SAR C-band (active microwave)",
+      "spatial_resolution": "5-40m (mode dependent; 10m in standard IW mode)",
+      "revisit_time": "6 days per satellite; ~3 days over Europe with constellation",
+      "access_url": "https://dataspace.copernicus.eu",
+      "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+      "collection_id": "SENTINEL-1",
+      "description": "Sentinel-1 is a polar-orbiting, all-weather, day-and-night C-band SAR mission. It is the primary satellite source for flood mapping in Europe and globally, providing backscatter imagery that clearly distinguishes open water from land regardless of cloud cover or lighting conditions.",
+      "operational_requirements": {
+        "flood_detection": {
+          "supported": true,
+          "notes": "Open water produces low SAR backscatter in VV/VH polarisation, enabling reliable flood detection through thresholding and change detection"
+        },
+        "flood_extent_assessment": {
+          "supported": true,
+          "notes": "Pre- and post-event SAR change detection accurately delineates flood extent; IW mode covers 250km swath at 10m resolution"
+        },
+        "cloudy_conditions": {
+          "supported": true,
+          "notes": "Active SAR sensor penetrates all cloud types, rain and atmospheric aerosols without any signal degradation"
+        },
+        "night_operations": {
+          "supported": true,
+          "notes": "Active sensor transmits its own microwave pulses, completely independent of solar illumination"
+        },
+        "emergency_response": {
+          "supported": true,
+          "notes": "Primary data source for Copernicus EMS Rapid Mapping activations; free access within hours of acquisition"
+        }
+      },
+      "strengths": [
+        "All-weather capability through cloud penetration",
+        "Day and night operations with active sensor",
+        "10m spatial resolution in Interferometric Wide (IW) mode",
+        "250km swath width enabling large area coverage",
+        "Free and open access with no registration required for data",
+        "Long time series available since April 2014",
+        "Constellation restored with Sentinel-1C launch in December 2024"
+      ],
+      "limitations": [
+        "SAR imagery requires specialist processing skills (speckle, geometric correction)",
+        "Flooded vegetation and urban areas produce complex backscatter signatures",
+        "Steep or mountainous terrain causes radar shadow and layover artefacts",
+        "Reduced repeat cycle from 2021 to 2024 following Sentinel-1B failure"
+      ],
+      "products": [
+        "GRD (Ground Range Detected)",
+        "SLC (Single Look Complex)",
+        "OCN (Ocean)"
+      ],
+      "recommended_for": [
+        "Primary all-weather flood mapping",
+        "Rapid mapping during active flood events",
+        "Night-time or cloudy emergency response"
+      ]
+    },
+    {
+      "provider_id": "sentinel_2",
+      "provider_label": "Sentinel-2",
+      "organization": "ESA / Copernicus",
+      "type": "satellite_mission",
+      "sensor_type": "Multispectral MSI (13 bands, 443-2190nm)",
+      "spatial_resolution": "10m (visible/NIR), 20m (red-edge/SWIR), 60m (atmospheric)",
+      "revisit_time": "5 days at equator; 2-3 days at mid-latitudes (A+B constellation)",
+      "access_url": "https://dataspace.copernicus.eu",
+      "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+      "collection_id": "SENTINEL-2-L2A",
+      "description": "Sentinel-2 is a polar-orbiting multispectral optical mission optimised for land monitoring. It provides high-resolution surface reflectance imagery enabling accurate computation of spectral water indices (NDWI, MNDWI) for flood extent mapping under clear sky conditions.",
+      "operational_requirements": {
+        "flood_detection": {
+          "supported": true,
+          "notes": "NDWI (Green-NIR / Green+NIR) and MNDWI (Green-SWIR / Green+SWIR) indices clearly separate water from land at 10-20m resolution"
+        },
+        "flood_extent_assessment": {
+          "supported": true,
+          "notes": "Water body delineation from spectral indices provides detailed flood extent maps at 10m resolution in cloud-free conditions"
+        },
+        "cloudy_conditions": {
+          "supported": false,
+          "notes": "Optical sensor is completely blocked by cloud cover; cloud fraction above 20% severely limits usability during flood events"
+        },
+        "night_operations": {
+          "supported": false,
+          "notes": "Passive optical sensor requires solar illumination; no night-time acquisition capability"
+        },
+        "emergency_response": {
+          "supported": true,
+          "notes": "Complementary to SAR for post-event damage assessment in cloud-free windows; 10m resolution supports detailed impact mapping"
+        }
+      },
+      "strengths": [
+        "10m spatial resolution in visible and NIR bands",
+        "290km swath width for large area coverage",
+        "Dedicated water detection bands (B3 Green, B8 NIR, B11/B12 SWIR)",
+        "Free and open access with full data continuity since 2015",
+        "Rich time series enabling pre-flood baseline computation",
+        "Complementary to Sentinel-1 SAR in cloud-free periods"
+      ],
+      "limitations": [
+        "Completely blocked by cloud cover, which frequently accompanies flood events",
+        "No night-time capability",
+        "Dense vegetation canopy can mask shallow flooding beneath",
+        "Atmospheric correction required for accurate water index computation"
+      ],
+      "products": [
+        "L1C (Top-of-Atmosphere reflectance)",
+        "L2A (Bottom-of-Atmosphere / surface reflectance)"
+      ],
+      "recommended_for": [
+        "Post-event flood extent mapping in clear sky windows",
+        "Vegetation and land-use context for flood impact assessment",
+        "Multi-temporal analysis comparing pre- and post-flood land cover"
+      ]
+    },
+    {
+      "provider_id": "sentinel_3",
+      "provider_label": "Sentinel-3",
+      "organization": "ESA / Copernicus / EUMETSAT",
+      "type": "satellite_mission",
+      "sensor_type": "OLCI (Ocean and Land Colour Instrument, 21 bands) + SLSTR (Sea and Land Surface Temperature Radiometer)",
+      "spatial_resolution": "300m (OLCI), 500m/1km (SLSTR)",
+      "revisit_time": "Less than 2 days globally (A+B tandem constellation)",
+      "access_url": "https://dataspace.copernicus.eu",
+      "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+      "collection_id": "SENTINEL-3",
+      "description": "Sentinel-3 is a multi-instrument ocean and land monitoring mission providing global coverage at medium resolution. Its OLCI sensor enables large-scale water body monitoring and flood extent estimation, while SLSTR provides surface temperature data useful for assessing flood-affected areas and evaporation dynamics.",
+      "operational_requirements": {
+        "flood_detection": {
+          "supported": true,
+          "notes": "OLCI water bands enable flood detection at 300m resolution; suitable for large river and coastal flood events"
+        },
+        "flood_extent_assessment": {
+          "supported": true,
+          "notes": "Global Surface Water monitoring at 300m; best suited for large-scale flood extents covering hundreds of square kilometres"
+        },
+        "cloudy_conditions": {
+          "supported": false,
+          "notes": "Optical instrument; cloud cover limits observations, though near-daily revisit improves cloud-free chance"
+        },
+        "night_operations": {
+          "supported": false,
+          "notes": "Passive optical sensor; no night-time capability for OLCI"
+        },
+        "emergency_response": {
+          "supported": true,
+          "notes": "Near-daily coverage supports operational monitoring of evolving large-scale flood situations"
+        }
+      },
+      "strengths": [
+        "Near-daily global revisit (< 2 days with A+B tandem)",
+        "Wide area coverage at 300m enabling continental-scale flood monitoring",
+        "21 OLCI spectral bands optimised for water and land colour",
+        "Synergy between OLCI and SLSTR instruments",
+        "Free and open access",
+        "Consistent long-term record since 2016 (3A) and 2018 (3B)"
+      ],
+      "limitations": [
+        "300m resolution too coarse for detailed urban or small river flood mapping",
+        "Optical instrument blocked by clouds",
+        "Less commonly used than Sentinel-1/2 for emergency flood response"
+      ],
+      "products": [
+        "OLCI Level-1B (radiances)",
+        "OLCI Level-2 Land (vegetation, water)",
+        "SLSTR Level-1B (brightness temperatures)",
+        "SLSTR Level-2 Land Surface Temperature"
+      ],
+      "recommended_for": [
+        "Large-scale river basin and coastal flood monitoring",
+        "Continental overview of flood evolution over multiple days",
+        "Land surface temperature change detection in flooded areas"
+      ]
+    },
+    {
+      "provider_id": "sentinel_5p",
+      "provider_label": "Sentinel-5P (TROPOMI)",
+      "organization": "ESA / Copernicus",
+      "type": "satellite_mission",
+      "sensor_type": "TROPOMI (TROPOspheric Monitoring Instrument) — UV/VIS/NIR/SWIR spectrometer",
+      "spatial_resolution": "3.5 x 5.5 km (since August 2019)",
+      "revisit_time": "Daily global coverage",
+      "access_url": "https://dataspace.copernicus.eu",
+      "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+      "collection_id": "SENTINEL-5P",
+      "description": "Sentinel-5P carries the TROPOMI instrument for daily global atmospheric monitoring at unprecedented spatial resolution. While primarily an atmospheric mission, it supports flood emergency response by detecting methane releases from flooded wetlands, monitoring NO2 and SO2 from industrial accidents accompanying floods, and assessing aerosol and cloud coverage to plan optical satellite observations.",
+      "operational_requirements": {
+        "flood_detection": {
+          "supported": false,
+          "notes": "Atmospheric sensor; does not directly detect surface flooding"
+        },
+        "flood_extent_assessment": {
+          "supported": false,
+          "notes": "3.5km resolution and atmospheric focus make it unsuitable for flood extent delineation"
+        },
+        "cloudy_conditions": {
+          "supported": true,
+          "notes": "Cloud fraction and aerosol products identify when and where optical satellite observation windows are available"
+        },
+        "night_operations": {
+          "supported": false,
+          "notes": "Passive UV/VIS instrument requires solar illumination for most products"
+        },
+        "emergency_response": {
+          "supported": true,
+          "notes": "Detects methane (CH4) from flooded organic soils and wetlands; monitors NO2/SO2 from industrial accidents triggered by flooding; supports multi-hazard emergency assessment"
+        }
+      },
+      "strengths": [
+        "Daily global atmospheric coverage",
+        "Highest-resolution spaceborne atmospheric spectrometer for operational use",
+        "Detects secondary hazards co-occurring with floods (industrial accidents, gas leaks)",
+        "Cloud fraction product guides planning of optical satellite tasking",
+        "Free and open access",
+        "Available since October 2017"
+      ],
+      "limitations": [
+        "Does not detect surface flooding directly",
+        "3.5km pixel size far too coarse for flood extent mapping",
+        "Primarily an atmospheric instrument; flood applications are ancillary",
+        "Requires atmospheric chemistry expertise to interpret correctly"
+      ],
+      "products": [
+        "NO2 (Nitrogen Dioxide)",
+        "SO2 (Sulphur Dioxide)",
+        "CH4 (Methane)",
+        "CO (Carbon Monoxide)",
+        "O3 (Ozone)",
+        "HCHO (Formaldehyde)",
+        "Aerosol Index",
+        "Cloud fraction"
+      ],
+      "recommended_for": [
+        "Multi-hazard emergency assessment alongside surface flood mapping",
+        "Methane monitoring from flooded organic soils",
+        "Optical satellite observation window planning using cloud fraction data"
+      ]
+    }
+  ]
+}

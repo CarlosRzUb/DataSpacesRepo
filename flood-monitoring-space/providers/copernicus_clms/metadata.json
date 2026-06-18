@@ -1,0 +1,62 @@
+{
+  "provider_id": "copernicus_clms",
+  "provider_label": "Copernicus Land Monitoring Service (CLMS)",
+  "organization": "European Environment Agency (EEA) / European Commission",
+  "type": "thematic_land_monitoring_service",
+  "sensor_type": "Multi-source (Sentinel-1, Sentinel-2, Landsat, MODIS, VHR commercial)",
+  "spatial_resolution": "10-100m depending on product (EU-DEM 25m, HRL 10-100m, GSW 30m)",
+  "revisit_time": "Annual to multi-year updates depending on product; Global Surface Water updated annually",
+  "access_url": "https://land.copernicus.eu",
+  "api_endpoint": "https://land.copernicus.eu/en/products",
+  "collection_id": "N/A (product-based service)",
+  "description": "The Copernicus Land Monitoring Service delivers pan-European and global land-related datasets including digital elevation models, land cover classification, vegetation, and water-related products. Its datasets provide the essential baseline context for flood risk assessment, hydrological modelling, and post-flood impact analysis.",
+  "operational_requirements": {
+    "flood_detection": {
+      "supported": false,
+      "notes": "Not a real-time detection service; provides baseline land and water datasets for context rather than active event monitoring"
+    },
+    "flood_extent_assessment": {
+      "supported": true,
+      "notes": "Global Surface Water (GSW) product provides 30m long-term water occurrence and change maps enabling flood extent comparison against historical water baselines"
+    },
+    "cloudy_conditions": {
+      "supported": true,
+      "notes": "Archived products are pre-processed and cloud-free composites; not affected by cloud cover at time of use"
+    },
+    "night_operations": {
+      "supported": true,
+      "notes": "Static archive products available at any time independent of illumination conditions"
+    },
+    "emergency_response": {
+      "supported": true,
+      "notes": "EU-DEM provides hydrological terrain analysis; imperviousness layers support urban flood risk; land cover data contextualises flood impact by use type"
+    }
+  },
+  "strengths": [
+    "EU-DEM v1.1 provides 25m pan-European digital elevation model for hydrological modelling",
+    "Global Surface Water (GSW) tracks water body changes from 1984 to present at 30m",
+    "CORINE Land Cover classifies land use across Europe for flood impact stratification",
+    "High Resolution Layers (HRL): imperviousness, forest, water bodies at 10-100m",
+    "Free and open access to all products",
+    "Long archive supporting historical baseline analysis"
+  ],
+  "limitations": [
+    "Not a real-time or near-real-time monitoring system",
+    "Products updated annually or less frequently",
+    "EU-DEM resolution (25m) insufficient for urban drainage modelling",
+    "Primarily European coverage for high-resolution products"
+  ],
+  "products": [
+    "EU-DEM v1.1 (25m Digital Elevation Model)",
+    "CORINE Land Cover (CLC)",
+    "Global Surface Water (GSW) - occurrence, seasonality, change",
+    "High Resolution Layers: imperviousness, forest, grassland, water bodies, small woody features",
+    "CLMS Riparian Zones dataset"
+  ],
+  "recommended_for": [
+    "Baseline flood risk assessment and hydrological modelling",
+    "Historical water body change analysis (GSW)",
+    "Urban flood impact stratification using imperviousness and land cover",
+    "Terrain analysis for flood pathway modelling using EU-DEM"
+  ]
+}

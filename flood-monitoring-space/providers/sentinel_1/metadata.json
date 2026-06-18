@@ -1,0 +1,56 @@
+{
+  "provider_id": "sentinel_1",
+  "provider_label": "Sentinel-1",
+  "organization": "ESA / Copernicus",
+  "type": "satellite_mission",
+  "sensor_type": "SAR C-band (active microwave)",
+  "spatial_resolution": "5-40m (mode dependent; 10m in standard IW mode)",
+  "revisit_time": "6 days per satellite; ~3 days over Europe with constellation",
+  "access_url": "https://dataspace.copernicus.eu",
+  "api_endpoint": "https://catalogue.dataspace.copernicus.eu/stac/search",
+  "collection_id": "SENTINEL-1",
+  "description": "Sentinel-1 is a polar-orbiting, all-weather, day-and-night C-band SAR mission. It is the primary satellite source for flood mapping in Europe and globally, providing backscatter imagery that clearly distinguishes open water from land regardless of cloud cover or lighting conditions.",
+  "operational_requirements": {
+    "flood_detection": {
+      "supported": true,
+      "notes": "Open water produces low SAR backscatter in VV/VH polarisation, enabling reliable flood detection through thresholding and change detection"
+    },
+    "flood_extent_assessment": {
+      "supported": true,
+      "notes": "Pre- and post-event SAR change detection accurately delineates flood extent; IW mode covers 250km swath at 10m resolution"
+    },
+    "cloudy_conditions": {
+      "supported": true,
+      "notes": "Active SAR sensor penetrates all cloud types, rain and atmospheric aerosols without any signal degradation"
+    },
+    "night_operations": {
+      "supported": true,
+      "notes": "Active sensor transmits its own microwave pulses, completely independent of solar illumination"
+    },
+    "emergency_response": {
+      "supported": true,
+      "notes": "Primary data source for Copernicus EMS Rapid Mapping activations; free access within hours of acquisition"
+    }
+  },
+  "strengths": [
+    "All-weather capability through cloud penetration",
+    "Day and night operations with active sensor",
+    "10m spatial resolution in Interferometric Wide (IW) mode",
+    "250km swath width enabling large area coverage",
+    "Free and open access with no registration required for data",
+    "Long time series available since April 2014",
+    "Constellation restored with Sentinel-1C launch in December 2024"
+  ],
+  "limitations": [
+    "SAR imagery requires specialist processing skills (speckle, geometric correction)",
+    "Flooded vegetation and urban areas produce complex backscatter signatures",
+    "Steep or mountainous terrain causes radar shadow and layover artefacts",
+    "Reduced repeat cycle from 2021 to 2024 following Sentinel-1B failure"
+  ],
+  "products": ["GRD (Ground Range Detected)", "SLC (Single Look Complex)", "OCN (Ocean)"],
+  "recommended_for": [
+    "Primary all-weather flood mapping",
+    "Rapid mapping during active flood events",
+    "Night-time or cloudy emergency response"
+  ]
+}

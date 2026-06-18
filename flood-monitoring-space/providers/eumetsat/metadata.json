@@ -1,0 +1,63 @@
+{
+  "provider_id": "eumetsat",
+  "provider_label": "EUMETSAT",
+  "organization": "European Organisation for the Exploitation of Meteorological Satellites",
+  "type": "meteorological_satellite_agency",
+  "sensor_type": "SEVIRI (Meteosat MSG geostationary), AVHRR / ASCAT / MHS (Metop polar-orbiting)",
+  "spatial_resolution": "3km (SEVIRI HRV channel), 15km (SEVIRI standard), 25km (ASCAT soil moisture)",
+  "revisit_time": "15 minutes (Meteosat MSG SEVIRI); 12-hour repeat (Metop polar orbit)",
+  "access_url": "https://data.eumetsat.int",
+  "api_endpoint": "https://api.eumetsat.int/data/browse/",
+  "collection_id": "EO:EUM:DAT:MSG:HRSEVIRI",
+  "description": "EUMETSAT operates Europe's meteorological satellites providing continuous atmospheric and meteorological monitoring. For flood monitoring, EUMETSAT supplies high-frequency precipitation estimates, soil moisture data, and severe weather products through the Hydrology Satellite Application Facility (H SAF), which are essential for flood early warning and upstream rainfall monitoring.",
+  "operational_requirements": {
+    "flood_detection": {
+      "supported": false,
+      "notes": "Meteorological sensors do not detect surface flooding directly; precipitation data supports upstream cause monitoring rather than flood surface detection"
+    },
+    "flood_extent_assessment": {
+      "supported": false,
+      "notes": "Coarse spatial resolution (3-25km) insufficient for flood extent delineation; atmospheric focus"
+    },
+    "cloudy_conditions": {
+      "supported": true,
+      "notes": "Microwave precipitation retrievals from Metop (MHS, AMSU) are cloud-penetrating; geostationary SEVIRI IR imagery monitors storm systems regardless of cloud cover"
+    },
+    "night_operations": {
+      "supported": true,
+      "notes": "IR and microwave instruments operate 24/7 independent of solar illumination; continuous precipitation monitoring day and night"
+    },
+    "emergency_response": {
+      "supported": true,
+      "notes": "H SAF near-real-time precipitation products feed into EFAS early warning; 15-minute MSG updates enable real-time tracking of extreme rainfall events"
+    }
+  },
+  "strengths": [
+    "15-minute precipitation estimates from geostationary Meteosat MSG SEVIRI",
+    "Hydrology SAF (H SAF) delivers operational near-real-time precipitation and soil moisture",
+    "Continuous 24/7 monitoring over Europe, Africa and the Atlantic",
+    "Essential upstream rainfall data for river flood early warning (feeds EFAS)",
+    "Long operational record since 1977 enabling climatological flood context",
+    "Global coverage via Metop polar-orbiting satellites"
+  ],
+  "limitations": [
+    "Spatial resolution (3-25km) too coarse for detailed flood extent mapping",
+    "Primarily meteorological focus; surface flood detection requires complementary SAR/optical data",
+    "Requires user registration and data service agreement for full access",
+    "Precipitation retrieval has uncertainty in complex orographic terrain"
+  ],
+  "products": [
+    "H SAF H60 - instantaneous rain rate (Metop microwave)",
+    "H SAF H90 - accumulated precipitation analysis",
+    "H SAF H16 - soil moisture (ASCAT)",
+    "SEVIRI High-Rate SEVIRI (HRSEVIRI) full-disc imagery",
+    "RGB cloud composites and severe convection products",
+    "Metop AVHRR imagery"
+  ],
+  "recommended_for": [
+    "Upstream rainfall monitoring for river flood early warning",
+    "Real-time precipitation tracking during active storm events",
+    "Soil saturation assessment before and during flood events",
+    "Feeding hydrological models and EFAS with real-time precipitation forcing"
+  ]
+}
