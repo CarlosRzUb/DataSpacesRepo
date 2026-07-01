@@ -2,8 +2,8 @@
 FEDERATED EO DATA SPACE FOR NATIONAL FLOOD MONITORING
 Data Spaces and Federated Data Engineering — Labs 10-12
 ======================================================================
-Report generated:    2026-06-18 19:41:15
-Catalog generated:   2026-06-18T19:40:59.285336
+Report generated:    2026-07-01 16:33:31
+Catalog generated:   2026-07-01T16:27:16.680808
 Total providers:     8
 
 ----------------------------------------------------------------------
@@ -218,10 +218,10 @@ FEDERATION SUMMARY
   Total EO resources in data space: 8
   Originating organizations:        6
   Resource types represented:       5
-    - operational_emergency_service: 1
-    - satellite_mission: 4
     - meteorological_satellite_agency: 1
+    - satellite_mission: 4
     - data_access_platform: 1
+    - operational_emergency_service: 1
     - thematic_land_monitoring_service: 1
 
   flood_detection                     5/8 providers (62% coverage)
